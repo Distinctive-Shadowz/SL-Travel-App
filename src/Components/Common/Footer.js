@@ -6,7 +6,11 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 const Footer = () => {
   return (
-    <Box bgcolor="#000000" color="#ffffff" sx={{ p: 3 }}>
+    <Box
+      bgcolor="#000000"
+      color="#ffffff"
+      sx={{ py: 3, position: "absolute", bottom: 0, width: "100% " }}
+    >
       <Container>
         <Grid container>
           <Grid item xs={6} sm={3}>
