@@ -1,12 +1,15 @@
 import React from "react";
 import { Box, Container, Grid, Typography } from "@mui/material";
-import YouTubeIcon from "@mui/icons-material/YouTube";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import InstagramIcon from "@mui/icons-material/Instagram";
-const Footer = () => {
-  return (
-    <Box bgcolor="#000000" color="#ffffff" sx={{ p: 3 }}>
+import Small_logo from '../Images/Small_Logo.jpg';
+import Rights from '../Images/Rights.jpg';
+import '../Header/Dashboard.css';
+
+// Footer component
+const footer = () => {
+    return (
+      <footer>
+       <Box bgcolor="#000000" color="#ffffff" sx={{ p: 3 }}>
+       <img width='100px' height='100%' src={Small_logo}/>
       <Container>
         <Grid container>
           <Grid item xs={6} sm={3}>
@@ -131,8 +134,10 @@ const Footer = () => {
           </Grid>
         </Grid>
       </Container>
+      <img className="Rights_image" width='15%' height='100%' src={Rights}/>
     </Box>
-  );
-};
+      </footer>
+    );
+  };
 
-export default Footer;
+  export default footer;
