@@ -1,11 +1,13 @@
-import React from 'react';
+import React from "react";
+import SearchForm from "../SearchLayout/SearchForm";
 import "./Hotels.css";
 
-
 function Hotels() {
-    return (
-      <h1 className='Title'> Hotels </h1>
-    );
-  }
-  
-  export default Hotels;
+  return (
+    <>
+      <SearchForm />
+    </>
+  );
+}
+
+export default Hotels;

@@ -3,7 +3,7 @@ import Home from "./components/Home/Home";
 import Places from "./components/Places/Places";
 import Hotels from "./components/Hotels/Hotels";
 import Aboutus from "./components/Aboutus/Aboutus";
-import Login from "./components/Login/LoginPage";
+import LoginPage from "./components/Login/LoginPage";
 import RegisterPage from "./components/Register/RegisterPage";
 import Footer from "./components/Footer/Footer";
 
@@ -20,11 +20,11 @@ function App() {
     case "/Hotels":
       component = <Hotels />;
       break;
-    case "/About_us":
+    case "/Aboutus":
       component = <Aboutus />;
       break;
     case "/Login":
-      component = <Login />;
+      component = <LoginPage />;
       break;
     case "/Register":
       component = <RegisterPage />;

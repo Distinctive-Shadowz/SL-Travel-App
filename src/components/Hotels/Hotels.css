@@ -1,21 +1,21 @@
 * {
-    box-sizing:border-box;
-  }
-  
-  body {
-    margin: 0;
-    background-color: rgb(245, 230, 199);
-  }
+  box-sizing: border-box;
+}
 
-  .Title {
-    display: flex;
-    text-align: center;
-    align-items: center;
-    padding: 0 50%;
-  }
+body {
+  margin: 0;
+  background-color: #f5f2eb;
+}
 
-  .Quote {
-    text-align: center;
-    display: block;
-    font-size: x-large;
-  }
+.Title {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  padding: 0 50%;
+}
+
+.Quote {
+  text-align: center;
+  display: block;
+  font-size: x-large;
+}

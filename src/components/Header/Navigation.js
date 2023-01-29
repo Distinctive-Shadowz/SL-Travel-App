@@ -20,7 +20,7 @@ function Navigation() {
           <a href="/Places">Places</a>
         </li>
         <li>
-          <a href="/About_us">About Us</a>
+          <a href="/Aboutus">About Us</a>
         </li>
         <li>
           <a className="Login" href="/Login">
