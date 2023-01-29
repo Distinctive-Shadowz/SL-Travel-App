@@ -1,4 +1,5 @@
-* ::after, ::before {
+* ::after,
+::before {
   box-sizing: border-box;
 }
 
@@ -24,41 +25,40 @@ body {
   align-items: stretch;
   gap: 2rem;
   padding: 0 1rem;
-  }
+}
 
-  .Logo_style {
-    height: 100%;
-    width: 60%;
-  }
-  
-  .Nav a {
-    color: inherit;
-    text-decoration: none;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    padding: .25rem;
-  }
+.Logo_style {
+  height: 100%;
+  width: 60%;
+}
 
-  .Nav ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    display: flex;
-    gap: 5rem;
-  }
+.Nav a {
+  color: inherit;
+  text-decoration: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0.25rem;
+}
 
-  .Nav li.active {
-    color: rgb(66, 206, 206);
-  }
+.Nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  gap: 5rem;
+}
 
-  .Nav li:hover {
-    color: rgb(252, 140, 140);
-  }
+.Nav li.active {
+  color: rgb(66, 206, 206);
+  left: 2rem;
+}
 
-  .Rights_image {
-    margin: 0 40%;
-    padding: 0.25rem 1rem;
-  }
+.Nav li:hover {
+  color: rgb(252, 140, 140);
+}
 
- 
+.Rights_image {
+  margin: 0 40%;
+  padding: 0.25rem 1rem;
+}

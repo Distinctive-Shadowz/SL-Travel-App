@@ -27,6 +27,11 @@ function Navigation() {
             Login
           </a>
         </li>
+        <li>
+          <a className="Login" href="/Register">
+            Register
+          </a>
+        </li>
       </ul>
     </nav>
   );
