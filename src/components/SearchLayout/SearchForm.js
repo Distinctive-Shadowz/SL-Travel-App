@@ -144,10 +144,10 @@ const SearchForm = () => {
           spacing={2}
           sx={{ ".MuiGrid-item ": { pl: "46px", pt: "5rem" } }}
         >
+          {/* <Grid sx={{ xs: "6", sm: "6", md: "3" }}>1</Grid>
           <Grid sx={{ xs: "6", sm: "6", md: "3" }}>1</Grid>
           <Grid sx={{ xs: "6", sm: "6", md: "3" }}>1</Grid>
-          <Grid sx={{ xs: "6", sm: "6", md: "3" }}>1</Grid>
-          <Grid sx={{ xs: "6", sm: "6", md: "3" }}>1</Grid>
+          <Grid sx={{ xs: "6", sm: "6", md: "3" }}>1</Grid> */}
         </Grid>
       </Container>
     </>
