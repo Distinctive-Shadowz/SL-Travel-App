@@ -7,7 +7,7 @@ body {
 }
 
 .Home_body {
-  background-color: rgb(245, 230, 199);
+  background-color: rgb(163, 152, 129);
   background-image: url("/public/Images/Home_Background.jpg");
   background-size: cover;
 }

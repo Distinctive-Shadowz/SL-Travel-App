@@ -6,7 +6,11 @@ import "../Header/Dashboard.css";
 const footer = () => {
   return (
     <footer>
-      <Box bgcolor="#000000" color="#ffffff" sx={{ p: 3 }}>
+      <Box
+        bgcolor="#000000"
+        color="#ffffff"
+        sx={{ py: 3, position: "absolute", bottom: 0, width: "100% " }}
+      >
         <img
           width="100px"
           height="100%"
