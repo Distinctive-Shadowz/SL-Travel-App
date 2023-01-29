@@ -1,9 +1,10 @@
 import React from 'react';
+import Route from "../Route/Route"
 
 
 function Places() {
     return (
-      <h1> Places </h1>
+      <Route/>
     );
   }
   
