@@ -9,7 +9,7 @@ const SearchForm = () => {
   return (
     <>
       <Header />
-      <CommonHero title="BOOK WITH US" ImageSrc="Images/image1.avif" />
+      <CommonHero title="BOOK WITH US" ImageSrc="Images/image.avif" />
       <Container>
         <Box
           sx={{
@@ -21,11 +21,6 @@ const SearchForm = () => {
             //,
           }}
         >
-          {/* <Box sx={{ display: "flex" }}>
-            <Box sx={{ width: "100%" }}>1</Box>
-            <Box sx={{ width: "100%" }}>2</Box>
-            <Box sx={{ width: "100%" }}>4</Box>
-          </Box> */}
           <Grid container spacing={2}>
             <Grid item xs={4} sm={4} md={4}>
               <Box
