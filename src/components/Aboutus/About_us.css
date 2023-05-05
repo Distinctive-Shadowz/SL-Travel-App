@@ -1,0 +1,47 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+/* Set styles for the main page title */
+.page-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-top: 3rem;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    -webkit-text-stroke: 1px;
+    -webkit-text-stroke-color: rgba(9, 99, 255, 0.553);
+  }
+  
+  /* Set styles for the sub-titles */
+  .sub-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 2rem;
+  }
+  
+  /* Set styles for the main content of the page */
+  .content {
+    max-width: 1000px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    padding: 2rem;
+  }
+  
+  /* Set styles for the section titles */
+  .section-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Set styles for the section content */
+  .section-content {
+    margin-bottom: 2rem;
+  }

@@ -48,13 +48,10 @@ function Home() {
             <p>
               Departure Time :<input className="input_style" type="time" />
             </p>
-            <p>
             <p className="search_button">
-              {/* <input className="search_button" type="button" value="Search"  /> */}
               <Link href="/Places" sx={{ textDecoration: "none"}}>
-                  Search{" "}
-                </Link>
-            </p>
+                Search{" "}
+              </Link>
             </p>
           </div>
         </form>
