@@ -2,7 +2,6 @@ import React from "react";
 import "./Home.css";
 import Link from '@mui/material/Link';
 
-
 function Home() {
   return (
     <body className="Home_body">
@@ -48,12 +47,11 @@ function Home() {
           <div className="Trip_start2">
             <p>
               Departure Time :<input className="input_style" type="time" />
-            </p>     
+            </p>
             <p className="search_button">
-              {/* <input className="search_button" type="button" value="Search"  /> */}
               <Link href="/Places" sx={{ textDecoration: "none"}}>
-                  Search{" "}
-                </Link>
+                Search{" "}
+              </Link>
             </p>
           </div>
         </form>
