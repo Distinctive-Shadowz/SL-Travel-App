@@ -1,10 +1,113 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import "./Home.css";
 import Link from '@mui/material/Link';
 
+function FormSection() {
+  const startingFromRef = useRef(null);
+  const destinationRef = useRef(null);
+  const departureTimeRef = useRef(null);
+  const departureDateRef = useRef(null);
+  const arrivalDateRef = useRef(null);
+  const vehicleRef = useRef(null);
+
+  const handlePrint = () => {
+    const startingFrom = startingFromRef.current.value;
+    const destination = destinationRef.current.value;
+    const departureTime = departureTimeRef.current.value;
+    const departureDate = departureDateRef.current.value;
+    const arrivalDate = arrivalDateRef.current.value;
+    const vehicle = document.querySelector('input[name="Vehicle"]:checked').value;
+
+    const printContents = `
+      <h2>Trip Details:</h2>
+      <p><strong>From:</strong> ${startingFrom}</p>
+      <p><strong>To:</strong> ${destination}</p>
+      <p><strong>Departure Date:</strong> ${departureDate}</p>
+      <p><strong>Arrival Date:</strong> ${arrivalDate}</p>
+      <p><strong>Vehicle:</strong> ${vehicle}</p>
+      <p><strong>Departure Time:</strong> ${departureTime}</p>
+    `;
+
+    const printWindow = window.open("", "_blank");
+    printWindow.document.open();
+    printWindow.document.write(`
+      <html>
+        <head>
+          <title>Trip Details</title>
+          <style>
+            @media print {
+              body {
+                padding: 20px;
+              }
+            }
+          </style>
+        </head>
+        <body>${printContents}</body>
+      </html>
+    `);
+    printWindow.document.close();
+    printWindow.print();
+    printWindow.close();
+  };
+
+  return (
+    <form>
+      <div className="Trip_start">
+        <p className="blink_me">Your Trip Starts From Here...</p>
+        <p>
+          <label htmlFor="startingFrom">From:</label>
+          <input id="startingFrom" className="input_style-one" placeholder="Starting From" ref={startingFromRef} />
+        </p>
+        <p>
+          <label htmlFor="destination">To:</label>
+          <input id="destination" className="input_style-two" placeholder="Destination" ref={destinationRef} />
+        </p>
+        <p>
+          <label htmlFor="departureDate">Departure Date:</label>
+          <input id="departureDate" className="input_style-three" type="date" ref={departureDateRef} />
+        </p>
+        <p>
+          <label htmlFor="arrivalDate">Arrival Date:</label>
+          <input id="arrivalDate" className="input_style-four" type="date" ref={arrivalDateRef} />
+        </p>
+      </div>
+      <ul className="Vehicle_select">
+        <li>
+          <h5>Motor Cycle</h5>
+          <input type="radio" name="Vehicle" value="Motor Cycle" ref={vehicleRef} />
+        </li>
+        <li>
+          <h5>Car</h5>
+          <input type="radio" name="Vehicle" value="Car" ref={vehicleRef} />
+        </li>
+        <li>
+          <h5>Bus</h5>
+          <input type="radio" name="Vehicle" value="Bus" ref={vehicleRef} />
+        </li>
+        <li>
+          <h5>Train</h5>
+          <input type="radio" name="Vehicle" value="Train" ref={vehicleRef} />
+        </li>
+        <li>
+          <h5>Flight</h5>
+          <input type="radio" name="Vehicle" value="Flight" ref={vehicleRef} />
+        </li>
+      </ul>
+      <div className="Trip_start2">
+        <p>
+          Departure Time :<input id="departureTime" className="input_style-five" type="time" ref={departureTimeRef} />
+        </p>
+      </div>
+      <div>
+        <button className="print-button" onClick={handlePrint}>Print</button>
+      </div>
+    </form>
+  );
+}
+
 function Home() {
   return (
-    <body className="Home_body">
+    <div className="Home_body">
       <div className="Title"></div>
       <div className="Quote">
         <h1>
@@ -12,50 +115,13 @@ function Home() {
         </h1>
       </div>
       <div>
-        <form>
-          <div className="Trip_start">
-            <p className="blink_me">Your Trip Starts From Here...</p>
-            <p>
-              <input className="input_style" placeholder="Starting From" />
-            </p>
-            <p>
-              <input className="input_style" placeholder="Destination" />
-            </p>
-          </div>
-          <ul className="Vehicle_select">
-            <li>
-              <h5>Motor Cycle</h5>
-              <input type="radio" name="Vehicle" />
-            </li>
-            <li>
-              <h5>Car</h5>
-              <input type="radio" name="Vehicle" />
-            </li>
-            <li>
-              <h5>Bus</h5>
-              <input type="radio" name="Vehicle" />
-            </li>
-            <li>
-              <h5>Train</h5>
-              <input type="radio" name="Vehicle" />
-            </li>
-            <li>
-              <h5>Flight</h5>
-              <input type="radio" name="Vehicle" />
-            </li>
-          </ul>
-          <div className="Trip_start2">
-            <p>
-              Departure Time :<input className="input_style" type="time" />
-            </p>
-            <p className="search_button">
-              <Link href="/Places" sx={{ textDecoration: "none"}}>
-                Search{" "}
-              </Link>
-            </p>
-          </div>
-        </form>
+        <FormSection />
       </div>
+      <p className="search_button">
+        <Link href="/Places" sx={{ textDecoration: "none"}}>
+          Go to Map
+        </Link>
+      </p>
       <div>
         <ul className="Advertise">
           <li>
@@ -111,7 +177,7 @@ function Home() {
       <div className="Title">
         <p></p>
       </div>
-    </body>
+    </div>
   );
 }
 
