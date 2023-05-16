@@ -17,7 +17,7 @@ function Navigation() {
           <a href="/Hotels">Hotels</a>
         </li>
         <li>
-          <a href="/Places">Places</a>
+          <a href="/Places">Map</a>
         </li>
         <li>
           <a href="/About_us">About Us</a>

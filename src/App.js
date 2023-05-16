@@ -5,6 +5,7 @@ import Hotels from "./components/Hotels/Hotels";
 import About_us from "./components/Aboutus/About_us";
 import Login from "./components/Login/Login";
 import Footer from "./components/Footer/Footer";
+import Route from "./components/Route/Route";
 
 function App() {
   let component;
@@ -14,7 +15,7 @@ function App() {
 
       break;
     case "/Places":
-      component = <Places />;
+      component = <Route />;
       break;
     case "/Hotels":
       component = <Hotels />;
