@@ -15,13 +15,7 @@ import {
  import Categories from "./Categories";
 import CommonHero from "../Common/CommonHero";
 const Meal = () => {
-//   const [data, setData] = useState(Categories)
-//   const filterResult=(catItem:any)=>{
-// const result = Categories.filter((curData)=>{
-//   return curData.category ===catItem;
-// })
-// setData(result)
-//   }
+ 
   return (
     <>
    
@@ -44,18 +38,7 @@ const Meal = () => {
         >
           FEATURED FOODS
         </Typography>
-        {/* <Box onClick={()=> filterResult('Men')}>Men</Box> */}
-        {/* <Box onClick={()=> filterResult('women')}>Women</Box> */}
-         {/* {data.map((values)=>{
-          const {id, title, price} = values;
-      return(
-        <Box key={id}>
-          <Box>  {title}</Box>
-          <Box>  {values.price}</Box>
-     
-        </Box>
-      )
-    })} */}
+        
         <Grid container spacing={2}>
           <Grid item xs={6} sm={3} sx={{ pt: 20 }}>
          

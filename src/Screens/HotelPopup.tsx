@@ -83,7 +83,7 @@ export default function HotelPopup() {
           fontSize: { xs: "0.6rem", sm: "0.7rem", md: "0.7rem" },
         }}
       >
-        View Hotel
+        View 
       </Button>
       <a href="Meal">
        <Button
