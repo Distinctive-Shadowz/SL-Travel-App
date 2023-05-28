@@ -175,6 +175,30 @@ const Categories = [
     mapSrc:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3933.193486390711!2d80.01890337468083!3d9.66450289042442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afe56a7c5e28b55%3A0x80efe7fa106b2411!2sValampuri%20Hotel!5e0!3m2!1sen!2slk!4v1685277180647!5m2!1sen!2slk",
   },
+  {
+    title: "Ariyawan hotel",
+    price: 213,
+    category: "Ampara",
+    src: "/Images/img4.jpeg",
+    mapSrc:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3933.193486390711!2d80.01890337468083!3d9.66450289042442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afe56a7c5e28b55%3A0x80efe7fa106b2411!2sValampuri%20Hotel!5e0!3m2!1sen!2slk!4v1685277180647!5m2!1sen!2slk",
+  },
+  {
+    title: "Monty hotel",
+    price: 213,
+    category: "Ampara",
+    src: "/Images/img6.jpeg",
+    mapSrc:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3933.193486390711!2d80.01890337468083!3d9.66450289042442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afe56a7c5e28b55%3A0x80efe7fa106b2411!2sValampuri%20Hotel!5e0!3m2!1sen!2slk!4v1685277180647!5m2!1sen!2slk",
+  },
+  {
+    title: "Terral hotel",
+    price: 213,
+    category: "Ampara",
+    src: "/Images/img11.jpeg",
+    mapSrc:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3933.193486390711!2d80.01890337468083!3d9.66450289042442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afe56a7c5e28b55%3A0x80efe7fa106b2411!2sValampuri%20Hotel!5e0!3m2!1sen!2slk!4v1685277180647!5m2!1sen!2slk",
+  },
 ];
 
 export default Categories;

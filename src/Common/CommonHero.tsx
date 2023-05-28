@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Container, Grid, Typography } from "@mui/material";
 
 
-const Hero = () => {
+const Hero:React.FC<{src:string; title:string}> = ({src, title}) => {
   return (
     <>
       <Box
@@ -11,17 +11,22 @@ const Hero = () => {
         //   width: "100%",
           position: "relative",
           overflow: "hidden",
-          objectFit:'fill'
+          objectFit:'fill',
+          ".img":{
+            objectFit:'cover'
+          }
         }}
       >
         <img
-          src={"/Images/hotel1.jpg"}
+        className="img"
+          src={src}
+          // src={"/Images/hotel1.jpg"}
           alt="hotel"
           width="100%"
           height="100%"
           // style={{ position: "absolute", top: 0, left: 0, objectFit:'fill'}}
         />
-        <Box sx={{position:'absolute', left:'50%', top:'50%', fontSize:{xs:'2rem', sm:'3.5rem',md:'4rem', color:'#fff', fontWeight:500}}} > HOTEL</Box>
+        <Box sx={{position:'absolute', left:'50%', top:'50%', fontSize:{xs:'2rem', sm:'3.5rem',md:'4rem', color:'#fff', fontWeight:500}}} > {title}</Box>
       </Box>
      
     </>

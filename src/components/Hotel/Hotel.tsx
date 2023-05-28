@@ -21,7 +21,7 @@ import "swiper/css/pagination";
 // import required modules
 import { Pagination } from "swiper";
 // import HotelPopup from "./HotelPopup";
-import CommonHero from "../Common/CommonHero";
+import CommonHero from "../../Common/CommonHero";
 
 import Categories from "./Categories";
 import { HotelPopup } from "./HotelPopup";
@@ -37,8 +37,8 @@ const Hotel = () => {
 
   return (
     <>
-      <CommonHero />
-      <Container sx={{my:'1.5rem'}}>
+      <CommonHero src={"/Images/hotel1.jpg"} title={"Hotel"} />
+      <Container sx={{ my: "1.5rem" }}>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={4} md={2}>
             <Box>
@@ -164,7 +164,21 @@ const Hotel = () => {
               >
                 Colombo
               </Box>
-
+              <Box
+                sx={{
+                  width: "100%",
+                  height: "50px",
+                  bgcolor: "#e7af1c",
+                  my: "10px",
+                  borderRadius: "10px",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+                onClick={() => filterResult("Ampara")}
+              >
+                Ampara
+              </Box>
               <Box
                 sx={{
                   width: "100%",
@@ -185,9 +199,17 @@ const Hotel = () => {
           </Grid>
           <Grid item xs={12} sm={8} md={10}>
             <Box sx={{ display: "flex", flexDirection: "row" }}></Box>
-            <Box sx={{ display: "flex", flexDirection: "row",flexWrap:'wrap' }}>
+            <Box
+              sx={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}
+            >
               {data.map((item) => {
-                return <HotelCom src={item.src} HotelName={item.title} mapSrc={item.mapSrc} />;
+                return (
+                  <HotelCom
+                    src={item.src}
+                    HotelName={item.title}
+                    mapSrc={item.mapSrc}
+                  />
+                );
               })}
             </Box>
           </Grid>
@@ -199,20 +221,32 @@ const Hotel = () => {
 
 export default Hotel;
 
-export const HotelCom: React.FC<{ src: string; HotelName: string ;mapSrc:string | null}> = ({
-  src,
-  HotelName,
-  mapSrc
-}) => {
+export const HotelCom: React.FC<{
+  src: string;
+  HotelName: string;
+  mapSrc: string | null;
+}> = ({ src, HotelName, mapSrc }) => {
   return (
     <>
-      <Box sx={{ boxShadow: 5, borderRadius: 2, m: "1rem", width: {xs:"100%", sm:'200px', md:'200px' }}}>
+      <Box
+        sx={{
+          boxShadow: 5,
+          borderRadius: 2,
+          m: "1rem",
+          width: { xs: "100%", sm: "200px", md: "200px" },
+         
+          ".img":{
+            objectFit:'cover'
+          }
+        }}
+      >
         <CardMedia
           component="img"
           src={src}
           alt="header"
           height="215"
           width="200"
+          className="img"
         />
         <CardContent sx={{ py: "0.5rem" }}>
           <Typography
@@ -220,19 +254,19 @@ export const HotelCom: React.FC<{ src: string; HotelName: string ;mapSrc:string 
             className="text"
             sx={{
               fontSize: {
-              
                 xs: "1rem",
                 sm: "1rem",
-                  md: "1rem",
+                md: "1rem",
               },
-             fontWeight:"500px",
-             textAlign:'center'
+              fontWeight: "500px",
+              textAlign: "center",
+              textTransform:'capitalize'
             }}
           >
             {/* The Lucky Elepahant Hotel in Hikkaduwa */}
             {HotelName}
           </Typography>
-          <HotelPopup  src={mapSrc}/>
+          <HotelPopup src={mapSrc} />
         </CardContent>
       </Box>
     </>

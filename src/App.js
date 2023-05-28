@@ -1,11 +1,11 @@
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 import Places from "./components/Places/Places";
-import Hotel from "./Screens/Hotel.tsx";
+import Hotel from "./components/Hotel/Hotel";
 import AboutUs from "./components/Aboutus/AboutUs";
 import Login from "./components/Login/Login";
 import Footer from "./components/Footer/Footer";
-import Meal from "./Screens/Meal.tsx";
+import Meal from "./components/Meal/Meal";
 
 function App() {
   let component;
