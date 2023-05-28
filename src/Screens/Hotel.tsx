@@ -20,10 +20,11 @@ import "swiper/css/pagination";
 
 // import required modules
 import { Pagination } from "swiper";
-import HotelPopup from "./HotelPopup";
+// import HotelPopup from "./HotelPopup";
 import CommonHero from "../Common/CommonHero";
 
 import Categories from "./Categories";
+import { HotelPopup } from "./HotelPopup";
 
 const Hotel = () => {
   const [data, setData] = useState(Categories);
@@ -186,7 +187,7 @@ const Hotel = () => {
             <Box sx={{ display: "flex", flexDirection: "row" }}></Box>
             <Box sx={{ display: "flex", flexDirection: "row",flexWrap:'wrap' }}>
               {data.map((item) => {
-                return <HotelCom src={item.src} HotelName={item.title} />;
+                return <HotelCom src={item.src} HotelName={item.title} mapSrc={item.mapSrc} />;
               })}
             </Box>
           </Grid>
@@ -198,9 +199,10 @@ const Hotel = () => {
 
 export default Hotel;
 
-export const HotelCom: React.FC<{ src: string; HotelName: string }> = ({
+export const HotelCom: React.FC<{ src: string; HotelName: string ;mapSrc:string | null}> = ({
   src,
   HotelName,
+  mapSrc
 }) => {
   return (
     <>
@@ -230,7 +232,7 @@ export const HotelCom: React.FC<{ src: string; HotelName: string }> = ({
             {/* The Lucky Elepahant Hotel in Hikkaduwa */}
             {HotelName}
           </Typography>
-          <HotelPopup />
+          <HotelPopup  src={mapSrc}/>
         </CardContent>
       </Box>
     </>

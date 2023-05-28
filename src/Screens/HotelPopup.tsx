@@ -53,7 +53,9 @@ function BootstrapDialogTitle(props: DialogTitleProps) {
   );
 }
 
-export default function HotelPopup() {
+
+
+export const HotelPopup:React.FC<{src:any}> =({src}) =>{
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState<null| number>(2);
 
@@ -106,12 +108,12 @@ export default function HotelPopup() {
       </Button>
       </a>
       </Box>
-      <BootstrapDialog
+      <Dialog
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={open}
       >
-        <BootstrapDialogTitle
+        {/* <BootstrapDialogTitle
           id="customized-dialog-title"
           onClose={handleClose}
           // sx={{
@@ -302,8 +304,12 @@ export default function HotelPopup() {
               </Typography>
             </Grid>
           </Grid>
-        </DialogContent>
-      </BootstrapDialog>
+        </DialogContent> */}
+        
+         { <iframe src={src}   width="600" height="450"  ></iframe>}
+         {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3933.193486390711!2d80.01890337468083!3d9.66450289042442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afe56a7c5e28b55%3A0x80efe7fa106b2411!2sValampuri%20Hotel!5e0!3m2!1sen!2slk!4v1685277180647!5m2!1sen!2slk" width="600" height="450" sx="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> */}
+        
+        </Dialog>
     </Box>
   );
 }
