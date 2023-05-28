@@ -9,9 +9,11 @@ import {
   Link,
   Typography,
 } from "@mui/material";
-import CommonHero from "../Common/CommonHero.tsx";
+// import CommonHero from "../Common/CommonHero.tsx";
+
 // import Briyani from "../Images/briyani.jpg";
  import Categories from "./Categories";
+import CommonHero from "../Common/CommonHero";
 const Meal = () => {
 //   const [data, setData] = useState(Categories)
 //   const filterResult=(catItem:any)=>{

@@ -8,10 +8,10 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import HotelPopup from "./HotelPopup.tsx";
+// import HotelPopup from "./HotelPopup.tsx";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import CommonHero from "../Common/CommonHero.tsx";
+// import CommonHero from "../Common/CommonHero.tsx";
 import hotel from "../Images/hotel1.jpg";
 
 
@@ -24,6 +24,8 @@ import "swiper/css/pagination";
 
 // import required modules
 import { Pagination } from "swiper";
+import HotelPopup from "./HotelPopup";
+import CommonHero from "../Common/CommonHero";
 
 const Hotel = () => {
   return (
