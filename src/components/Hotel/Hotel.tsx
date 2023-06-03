@@ -203,6 +203,7 @@ const Hotel = () => {
               sx={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}
             >
               {data.map((item) => {
+                console.log("item.mapSrc",item.mapSrc)
                 return (
                   <HotelCom
                     src={item.src}

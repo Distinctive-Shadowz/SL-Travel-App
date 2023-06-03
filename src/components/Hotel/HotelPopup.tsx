@@ -68,43 +68,50 @@ export const HotelPopup:React.FC<{src:any}> =({src}) =>{
 
   return (
     <Box>
-      <Box sx={{gap:'10px', display:'flex'}}>
+      <Box sx={{ gap:'15px',display:'flex'}}>
+        <a href={src} target="_blank">
       <Button
         variant="contained"
-        onClick={handleClickOpen}
+        // onClick={handleClickOpen}
         sx={{
           color: "Black",
           bgcolor: "#e6ea18",
           fontFamily: "Open Sans",
-          width: "6.5rem",
-          height: "25px",
+          // width: "6.5rem",
+          height: "40px",
+          // py:'5px',
           position: "relative",
           left: "0px",
           mt: "0.5rem",
+          maxWidth:'fit-content',
 
-          fontSize: { xs: "0.6rem", sm: "0.7rem", md: "0.7rem" },
+          
         }}
       >
-        View 
+         <Typography sx={{ fontSize: { xs: "0.6rem", sm: "0.7rem",  md: "13px" , fontWeight:600,  textTransform:'capitalize'}}}> View Hotel  </Typography>
+       
       </Button>
-      <a href="Meal">
+      </a>
+      <a href="Meal" target="_blank">
        <Button
-        variant="outlined"
+        variant="contained"
        
         sx={{
           color: "Black",
           bgcolor: "#e6ea18",
           fontFamily: "Open Sans",
-          width: "6.5rem",
-          height: "25px",
+          // width: "6.5rem",
+          height: "40px",
           position: "relative",
           left: "0px",
           mt: "0.5rem",
+          maxWidth:'fit-content',
 
-          fontSize: { xs: "0.6rem", sm: "0.7rem", md: "0.7rem" },
+         
         }}
       >
-      View Meal
+        <Typography sx={{ fontSize: { xs: "0.6rem", sm: "0.7rem",  md: "13px" , textTransform:'capitalize' ,fontWeight:600,},}}>View Meal</Typography>
+      
       </Button>
       </a>
       </Box>

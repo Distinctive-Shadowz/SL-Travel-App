@@ -45,7 +45,7 @@ const Meal = () => {
      {
       title: "Pasta",
       src: "/Images/Pasta.jpeg",
-      price: 1860,
+      price: 860,
     },
     {
       title: "Salad",
