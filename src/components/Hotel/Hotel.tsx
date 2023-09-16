@@ -214,6 +214,8 @@ const Hotel = () => {
               })}
             </Box>
           </Grid>
+          <Reacct name={"HOTELs"}/>
+           <Reacct name={"HOTELs"}/>
         </Grid>
       </Container>
     </>
@@ -221,6 +223,15 @@ const Hotel = () => {
 };
 
 export default Hotel;
+
+
+
+export const Reacct:React.FC<{name:string}> = ({name}) => {
+  return (
+    <div>{name}</div>
+  )
+}
+
 
 export const HotelCom: React.FC<{
   src: string;

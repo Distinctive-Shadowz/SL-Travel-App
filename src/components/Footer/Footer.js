@@ -13,14 +13,14 @@ const footer = () => {
           src={"/Images/Small_Logo.jpg"}
           alt="Small_logo"
         />
-        <Container>
+        <Container className="container">
           <Grid container>
             <Grid item xs={6} sm={3}>
               <Box sx={{ pb: "10px" }}>
                 <Typography
                   sx={{
                     fontSize: { xs: "0.6rem", sm: "0.8rem", md: "0.9rem" },
-                    pb: "10px",
+                    pb: "10px"
                   }}
                   fontFamily={"Open Sans"}
                   fontWeight={"bold"}
@@ -30,7 +30,7 @@ const footer = () => {
 
                 <Typography
                   sx={{
-                    fontSize: { xs: "0.6rem", sm: "0.7rem", md: "0.8rem" },
+                    fontSize: { xs: "0.6rem", sm: "0.7rem", md: "0.8rem" }
                   }}
                 >
                   About Us
@@ -38,7 +38,7 @@ const footer = () => {
                 <Typography
                   fontFamily={"Open Sans"}
                   sx={{
-                    fontSize: { xs: "0.6rem", sm: "0.7rem", md: "0.8rem" },
+                    fontSize: { xs: "0.6rem", sm: "0.7rem", md: "0.8rem" }
                   }}
                 >
                   Contact Us
@@ -50,7 +50,7 @@ const footer = () => {
                 <Typography
                   sx={{
                     fontSize: { xs: "0.6rem", sm: "0.8rem", md: "0.9rem" },
-                    pb: "10px",
+                    pb: "10px"
                   }}
                   fontFamily={"Open Sans"}
                   fontWeight={"bold"}
@@ -60,7 +60,7 @@ const footer = () => {
 
                 <Typography
                   sx={{
-                    fontSize: { xs: "0.6rem", sm: "0.7rem", md: "0.8rem" },
+                    fontSize: { xs: "0.6rem", sm: "0.7rem", md: "0.8rem" }
                   }}
                 >
                   Help / faqs
@@ -68,7 +68,7 @@ const footer = () => {
                 <Typography
                   fontFamily={"Open Sans"}
                   sx={{
-                    fontSize: { xs: "0.6rem", sm: "0.7rem", md: "0.8rem" },
+                    fontSize: { xs: "0.6rem", sm: "0.7rem", md: "0.8rem" }
                   }}
                 >
                   Cancel your Trip
@@ -80,7 +80,7 @@ const footer = () => {
                 <Typography
                   sx={{
                     fontSize: { xs: "0.6rem", sm: "0.8rem", md: "0.9rem" },
-                    pb: "10px",
+                    pb: "10px"
                   }}
                   fontFamily={"Open Sans"}
                   fontWeight={"bold"}
@@ -90,7 +90,7 @@ const footer = () => {
 
                 <Typography
                   sx={{
-                    fontSize: { xs: "0.6rem", sm: "0.7rem", md: "0.8rem" },
+                    fontSize: { xs: "0.6rem", sm: "0.7rem", md: "0.8rem" }
                   }}
                 >
                   Best Travel Destinations
@@ -98,7 +98,7 @@ const footer = () => {
                 <Typography
                   fontFamily={"Open Sans"}
                   sx={{
-                    fontSize: { xs: "0.6rem", sm: "0.7rem", md: "0.8rem" },
+                    fontSize: { xs: "0.6rem", sm: "0.7rem", md: "0.8rem" }
                   }}
                 >
                   Feedback
@@ -110,7 +110,7 @@ const footer = () => {
                 <Typography
                   sx={{
                     fontSize: { xs: "0.6rem", sm: "0.8rem", md: "0.9rem" },
-                    pb: "10px",
+                    pb: "10px"
                   }}
                   fontFamily={"Open Sans"}
                   fontWeight={"bold"}
@@ -120,7 +120,7 @@ const footer = () => {
 
                 <Typography
                   sx={{
-                    fontSize: { xs: "0.6rem", sm: "0.7rem", md: "0.8rem" },
+                    fontSize: { xs: "0.6rem", sm: "0.7rem", md: "0.8rem" }
                   }}
                 >
                   Privacy Policy
@@ -128,7 +128,7 @@ const footer = () => {
                 <Typography
                   fontFamily={"Open Sans"}
                   sx={{
-                    fontSize: { xs: "0.6rem", sm: "0.7rem", md: "0.8rem" },
+                    fontSize: { xs: "0.6rem", sm: "0.7rem", md: "0.8rem" }
                   }}
                 >
                   Terms of Use

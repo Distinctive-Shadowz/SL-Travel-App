@@ -99,12 +99,20 @@ const Meal = () => {
             );
           })}
         </Box>
+        <Mealx src={"34rtry"}/>
       </Container>
     </>
   );
 };
 
+
 export default Meal;
+export const Mealx:React.FC<{src:string}>= ({src}) => {
+  return (
+   <Box>{src}</Box>
+  )
+}
+
 
 export const MealType: React.FC<{
   src: string;

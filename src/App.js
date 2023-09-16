@@ -6,7 +6,7 @@ import AboutUs from "./components/Aboutus/AboutUs";
 import Login from "./components/Login/Login";
 import Footer from "./components/Footer/Footer";
 import Meal from "./components/Meal/Meal";
-
+import "./App.css";
 function App() {
   let component;
   switch (window.location.pathname) {
@@ -33,11 +33,11 @@ function App() {
       break;
   }
   return (
-    <>
+    <div>
       <Header />
       {component}
       <Footer />
-    </>
+    </div>
   );
 }
 
