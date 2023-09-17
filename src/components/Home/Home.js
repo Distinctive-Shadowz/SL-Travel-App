@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import "./Home.css";
 import Link from "@mui/material/Link";
 import { Container, Box } from "@mui/material";
@@ -230,7 +230,7 @@ function Home() {
       <div className="Title">
         <p></p>
       </div>
-    </body>
+    </div>
   );
 }
 

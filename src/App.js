@@ -9,6 +9,8 @@ import Login from "./components/Login/Login";
 import Footer from "./components/Footer/Footer";
 import Meal from "./components/Meal/Meal";
 import "./App.css";
+import Route from "./components/Route/Route";
+
 function App() {
   let component;
   switch (window.location.pathname) {
@@ -16,7 +18,7 @@ function App() {
       component = <Home />;
       break;
     case "/Places":
-      component = <Places />;
+      component = <Route />;
       break;
     case "/Hotels":
       component = <Hotel />;

@@ -36,13 +36,13 @@ body {
   display: flex;
   text-align: center;
   justify-content: space-between;
-  margin: 0 35%;
-  width: 25%;
+  margin: 0 32%;
+  width:  35%;
   list-style: none;
   gap: 1rem;
   text-decoration: none;
   height: 100%;
-  padding: 0.25rem;
+  padding: 0.1rem;
   border: 1;
   border-width: 5px;
   border-style: solid;
@@ -56,13 +56,54 @@ body {
   font-size: 2rem;
 }
 
-.input_style {
+.input_style-one {
   text-align: center;
   border: 1;
   border-width: 1.5px;
   border-style: solid;
   border-radius: 10px 10px 10px 10px;
   border-color: rgb(122, 45, 45);
+  margin-left: 50px;
+}
+
+.input_style-two {
+  text-align: center;
+  border: 1;
+  border-width: 1.5px;
+  border-style: solid;
+  border-radius: 10px 10px 10px 10px;
+  border-color: rgb(122, 45, 45);
+  margin-left: 70px;
+}
+
+.input_style-three {
+  text-align: center;
+  border: 1;
+  border-width: 1.5px;
+  border-style: solid;
+  border-radius: 10px 10px 10px 10px;
+  border-color: rgb(122, 45, 45);
+  margin-left: 18px;
+}
+
+.input_style-four {
+  text-align: center;
+  border: 1;
+  border-width: 1.5px;
+  border-style: solid;
+  border-radius: 10px 10px 10px 10px;
+  border-color: rgb(122, 45, 45);
+  margin-left: 45px;
+}
+
+.input_style-five {
+  text-align: center;
+  border: 1;
+  border-width: 1.5px;
+  border-style: solid;
+  border-radius: 10px 10px 10px 10px;
+  border-color: rgb(122, 45, 45);
+  margin-left: 20px;
 }
 
 .search_button {
@@ -72,15 +113,41 @@ body {
   text-align: center;
   color: white;
   border: 1;
-  margin-left: 140px;
+  margin-left: 53%;
+  margin-top: -43px;
   border-width: 1.5px;
   border-style: solid;
   border-radius: 6px 6px 6px 6px;
   border-color: rgb(0, 0, 0);
   background-color: rgb(28, 70, 13);
+  line-height: 40px;
 }
 
+
 .search_button:hover {
+  color: rgb(28, 70, 13);
+  background-color: white;
+}
+
+.print-button{
+  width: 100px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: large;
+  text-align: center;
+  color: white;
+  border: 1;
+  margin-left: 40%;
+  margin-top: 2px;
+  border-width: 1.5px;
+  border-style: solid;
+  border-radius: 6px 6px 6px 6px;
+  border-color: rgb(0, 0, 0);
+  background-color: rgb(28, 70, 13);
+  text-align: center;
+  line-height: 1px;
+}
+
+.print-button:hover {
   color: rgb(28, 70, 13);
   background-color: white;
 }
@@ -102,8 +169,8 @@ body {
   color: inherit;
   text-decoration: none;
   height: 100%;
-  margin: 0 35%;
-  width: 25%;
+  margin: 0 32%;
+  width: 35%;
   text-align: center;
   align-items: center;
   padding: 0.1rem;
@@ -122,8 +189,8 @@ body {
   color: inherit;
   text-decoration: none;
   height: 100%;
-  margin: 0 35%;
-  width: 25%;
+  margin: 0 32%;
+  width: 35%;
   text-align: center;
   align-items: center;
   padding: 0.1rem;
