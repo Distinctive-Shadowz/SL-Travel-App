@@ -3,8 +3,7 @@ import Home from "./components/Home/Home";
 import Places from "./components/Places/Places";
 import Hotel from "./components/Hotel/Hotel";
 import AboutUs from "./components/Aboutus/AboutUs";
-import Hotel from "./components/Hotel/Hotel";
-import AboutUs from "./components/Aboutus/AboutUs";
+
 import Login from "./components/Login/Login";
 import Footer from "./components/Footer/Footer";
 import Meal from "./components/Meal/Meal";
