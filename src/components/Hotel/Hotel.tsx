@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+  import React, { useState } from "react";
 // import Image from "next/image";
 import {
   Box,
@@ -39,7 +39,7 @@ const Hotel = () => {
     <>
       <CommonHero src={"/Images/hotel1.jpg"} title={"Hotel"} />
       <Container sx={{ my: "1.5rem" }}>
-        <Grid container spacing={2}>
+        <Grid container spacing={2} sx={{overflow:"hidden"}}>
           <Grid item xs={12} sm={4} md={2}>
             <Box>
               <Box
@@ -197,10 +197,10 @@ const Hotel = () => {
               </Box>
             </Box>
           </Grid>
-          <Grid item xs={12} sm={8} md={10}>
-            <Box sx={{ display: "flex", flexDirection: "row" }}></Box>
+          <Grid item xs={12} sm={8} md={10}   >
+            
             <Box
-              sx={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}
+              sx={{ display: "flex", flexDirection: "row", flexWrap: "wrap" , overflow:"auto", maxHeight:"700px"}}
             >
               {data.map((item) => {
                 console.log("item.mapSrc",item.mapSrc)
@@ -214,8 +214,7 @@ const Hotel = () => {
               })}
             </Box>
           </Grid>
-          <Reacct name={"HOTELs"}/>
-           <Reacct name={"HOTELs"}/>
+       
         </Grid>
       </Container>
     </>

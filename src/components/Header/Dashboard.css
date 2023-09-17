@@ -45,7 +45,7 @@ body {
   }
 
   .Nav li.active {
-    color: rgb(66, 206, 206);
+    /* color: rgb(66, 206, 206); */
   }
 
   .Nav li:hover {
@@ -67,7 +67,9 @@ body {
     padding: 1rem 0px;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
+
 .login_btn{
     width: 100px;
     height: 100%;

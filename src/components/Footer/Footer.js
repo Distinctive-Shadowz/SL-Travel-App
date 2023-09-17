@@ -7,16 +7,26 @@ const footer = () => {
   return (
     <footer>
       <Box bgcolor="#000000" color="#ffffff" sx={{ p: 3 }}>
-        <img
-          width="100px"
-          height="100%"
-          src={"/Images/Small_Logo.jpg"}
-          alt="Small_logo"
-        />
-        <Container className="container">
+        <Container>
           <Grid container>
-            <Grid item xs={6} sm={3}>
-              <Box sx={{ pb: "10px" }}>
+            <Grid item xs={6} sm={2.4}>
+              <img
+                width="100px"
+                height="20px"
+                src={"/Images/Small_Logo.jpg"}
+                alt="Small_logo"
+              />
+            </Grid>
+            <Grid item xs={6} sm={2.4}>
+              <Box
+                sx={{
+                  pb: "10px",
+                  alignItems: "flex-start",
+                  flexDirection: "center",
+                  display: "flex",
+                  flexDirection: "column"
+                }}
+              >
                 <Typography
                   sx={{
                     fontSize: { xs: "0.6rem", sm: "0.8rem", md: "0.9rem" },
@@ -45,8 +55,16 @@ const footer = () => {
                 </Typography>
               </Box>
             </Grid>
-            <Grid item xs={6} sm={3}>
-              <Box sx={{ pb: "10px" }}>
+            <Grid item xs={6} sm={2.4}>
+              <Box
+                sx={{
+                  pb: "10px",
+                  alignItems: "flex-start",
+                  flexDirection: "center",
+                  display: "flex",
+                  flexDirection: "column"
+                }}
+              >
                 <Typography
                   sx={{
                     fontSize: { xs: "0.6rem", sm: "0.8rem", md: "0.9rem" },
@@ -75,8 +93,16 @@ const footer = () => {
                 </Typography>
               </Box>
             </Grid>
-            <Grid item xs={6} sm={3}>
-              <Box sx={{ pb: "10px" }}>
+            <Grid item xs={6} sm={2.4}>
+              <Box
+                sx={{
+                  pb: "10px",
+                  alignItems: "flex-start",
+                  flexDirection: "center",
+                  display: "flex",
+                  flexDirection: "column"
+                }}
+              >
                 <Typography
                   sx={{
                     fontSize: { xs: "0.6rem", sm: "0.8rem", md: "0.9rem" },
@@ -105,8 +131,16 @@ const footer = () => {
                 </Typography>
               </Box>
             </Grid>
-            <Grid item xs={6} sm={3}>
-              <Box sx={{ pb: "10px" }}>
+            <Grid item xs={6} sm={2.4}>
+              <Box
+                sx={{
+                  pb: "10px",
+                  alignItems: "flex-start",
+                  flexDirection: "center",
+                  display: "flex",
+                  flexDirection: "column"
+                }}
+              >
                 <Typography
                   sx={{
                     fontSize: { xs: "0.6rem", sm: "0.8rem", md: "0.9rem" },

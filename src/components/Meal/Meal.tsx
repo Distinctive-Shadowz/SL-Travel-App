@@ -99,7 +99,7 @@ const Meal = () => {
             );
           })}
         </Box>
-        <Mealx src={"34rtry"}/>
+       
       </Container>
     </>
   );

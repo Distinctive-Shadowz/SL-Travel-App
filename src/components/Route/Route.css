@@ -1,0 +1,122 @@
+.container {
+  display: flex;
+}
+
+.left-side {
+  flex: 1;
+  padding: 20px;
+  margin-bottom: 700px;
+  background-color: rgb(245, 230, 199);
+}
+
+.get-button{
+  margin-left: 10px;
+  background-color: black;
+  color: rgb(255, 255, 255);
+  font-weight: bolder;
+  font-size: large;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  background-image: linear-gradient(79deg, #000000, #2b2b29 48%, #4a4848);
+  border-width: 1pt;
+  border-style: ridge;
+  border-color: rgb(255, 255, 255);
+  border-radius: 80pt 80pt 80pt 80pt;
+  line-height: 5px;
+
+}
+.input-section {
+ padding:  1rem 0px;
+}
+.input-section-one{
+  padding-inline: 30px;
+
+}
+
+.input-section-two{
+  padding-inline: 30px;
+  margin-left: 10px;
+
+}
+
+.right-side {
+  /* flex: 1; */
+  padding: 20px;
+  background-color:rgb(245, 230, 199) ;
+
+}
+
+.route-list {
+  margin-top: 20px;
+  display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+}
+.routeCon{
+ background-color:rgb(245, 230, 199) ;
+ display: flex;
+ width: 100%;
+ 
+}
+.route {
+  margin-bottom: 10px;
+}
+
+.box-frame {
+  border: 1px solid #ccc;
+  padding: 60px;
+}
+
+.map-container {
+  width: 100%;
+  height: 400px;
+  
+}
+
+.route button {
+  margin-top: 10px;
+}
+
+.route-selection {
+  margin-bottom: 10px;
+}
+
+.route-change-button {
+  margin-right: 950px;
+  padding: 5px 10px;
+  margin-left: -800px;
+  margin-bottom: 20px;
+  margin-top: -590px;
+  background-color: #000000;
+  border-radius: 10px;
+  border-color: black;
+  border-width: 2px;
+  border-style: double;
+  border: box;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  text-align: center;
+  
+}
+
+.route-change-button.selected {
+  background-color: #ccc;
+}
+
+.available-routes{
+  color: chocolate;
+  font-size: 2rem;
+  text-align: center;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.selected-route{
+  color: rgb(12, 82, 70);
+  font-size: 2rem;
+  text-align: center;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
