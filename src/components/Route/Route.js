@@ -74,7 +74,7 @@ const Route = () => {
 
   const mapContainerStyle = {
     width: "100%",
-    height: "250vh"
+    height: "90vh"
   };
 
   const mapOptions = {
@@ -89,6 +89,49 @@ const Route = () => {
   return (
     <div className="container">
       <div className="routeCon">
+        <div className="right-side">
+          <div className="input-section">
+            <input
+              className="input-section-one"
+              type="text"
+              placeholder="From"
+              value={from}
+              onChange={(e) => setFrom(e.target.value)}
+            />
+            <input
+              className="input-section-two"
+              type="text"
+              placeholder="To"
+              value={to}
+              onChange={(e) => setTo(e.target.value)}
+            />
+            <button className="get-button" onClick={handleGetRoute}>
+              Get Route
+            </button>
+          </div>
+          <div className="frame">
+            <GoogleMap
+              mapContainerStyle={mapContainerStyle}
+              options={mapOptions}
+              onLoad={handleMapLoad}
+              onCenterChanged={handleMapLoad}
+              onUnmount={initMap}
+            >
+              {routes.map((route) => (
+                <Marker
+                  key={route.id}
+                  position={{ lat: route.latitude, lng: route.longitude }}
+                  title={route.name}
+                />
+              ))}
+
+              {directions &&
+                directions.routes.map((route, index) => (
+                  <DirectionsRenderer key={index} directions={directions} />
+                ))}
+            </GoogleMap>
+          </div>
+        </div>
         <div className="left-side">
           <div className="routes-list">
             {sortedRoutes.map((route) => (
@@ -100,9 +143,7 @@ const Route = () => {
               </div>
             ))}
           </div>
-          <div
-          // className="route-change-button"
-          >
+          <div className="route-change-button">
             <h4 className="selected-route">Selected Route</h4>
             {selectedRoute && (
               <div className="route-details">
@@ -134,84 +175,6 @@ const Route = () => {
                 ))}
             </div>
           </div>
-        </div>
-        <div className="right-side">
-          <div className="frame">
-            <div className="input-section">
-              <input
-                className="input-section-one"
-                type="text"
-                placeholder="From"
-                value={from}
-                onChange={(e) => setFrom(e.target.value)}
-              />
-              <input
-                className="input-section-two"
-                type="text"
-                placeholder="To"
-                value={to}
-                onChange={(e) => setTo(e.target.value)}
-              />
-              <button className="get-button" onClick={handleGetRoute}>
-                Get Route
-              </button>
-            </div>
-            <GoogleMap
-              mapContainerStyle={mapContainerStyle}
-              options={mapOptions}
-              onLoad={handleMapLoad}
-              onCenterChanged={handleMapLoad}
-              onUnmount={initMap}
-            >
-              {routes.map((route) => (
-                <Marker
-                  key={route.id}
-                  position={{ lat: route.latitude, lng: route.longitude }}
-                  title={route.name}
-                />
-              ))}
-
-              {directions &&
-                directions.routes.map((route, index) => (
-                  <DirectionsRenderer key={index} directions={directions} />
-                ))}
-            </GoogleMap>
-          </div>
-
-          {/* <div
-        // className="route-change-button"
-        >
-          <h4 className="selected-route">Selected Route</h4>
-          {selectedRoute && (
-            <div className="route-details">
-              <h5>{selectedRoute.summary}</h5>
-              <p>Distance: {selectedRoute.legs[0].distance.text}</p>
-              <p>Duration: {selectedRoute.legs[0].duration.text}</p>
-              <p>Start: {selectedRoute.legs[0].start_address}</p>
-              <p>End: {selectedRoute.legs[0].end_address}</p>
-            </div>
-          )}
-
-          <div className="route-list">
-            <h4 className="available-routes">Available Routes</h4>
-            {directions &&
-              directions.routes.map((route, index) => (
-                <div
-                  key={index}
-                  className={`route-option ${
-                    selectedRoute === route ? "selected" : ""
-                  }`}
-                  onClick={() => handleSelectRoute(route)}
-                >
-                  <h5>{route.summary}</h5>
-                  <p>Distance: {route.legs[0].distance.text}</p>
-                  <p>Duration: {route.legs[0].duration.text}</p>
-                  <p>Start: {route.legs[0].start_address}</p>
-                  <p>End: {route.legs[0].end_address}</p>
-                </div>
-              ))}
-          </div>
-        </div> */}
         </div>
       </div>
     </div>
