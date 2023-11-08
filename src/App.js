@@ -13,22 +13,22 @@ import Route from "./components/Route/Route";
 function App() {
   let component;
   switch (window.location.pathname) {
-    case "/Home":
+    case "/":
       component = <Home />;
       break;
-    case "/Places":
+    case "/places":
       component = <Route />;
       break;
-    case "/Hotels":
+    case "/hotels":
       component = <Hotel />;
       break;
-    case "/About_us":
+    case "/about_us":
       component = <AboutUs />;
       break;
-    case "/Login":
+    case "/login":
       component = <Login />;
       break;
-    case "/Meal":
+    case "/meal":
       component = <Meal />;
       break;
     default:

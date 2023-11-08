@@ -13,7 +13,8 @@ const Hero:React.FC<{src:string; title:string}> = ({src, title}) => {
           overflow: "hidden",
           objectFit:'fill',
           ".img":{
-            objectFit:'cover'
+            objectFit:'cover',
+            opacity:0.9
           }
         }}
       >
@@ -24,9 +25,10 @@ const Hero:React.FC<{src:string; title:string}> = ({src, title}) => {
           alt="hotel"
           width="100%"
           height="100%"
+          
           // style={{ position: "absolute", top: 0, left: 0, objectFit:'fill'}}
         />
-        <Box sx={{position:'absolute', left:'50%', top:'50%', fontSize:{xs:'2rem', sm:'3.5rem',md:'4rem', color:'#fff', fontWeight:500}}} > {title}</Box>
+        <Box sx={{position:'absolute', left:'50%', top:'50%', color:"#000",fontSize:{xs:'2rem', sm:'3.5rem',md:'4rem'}, fontWeight:800}} > {title}</Box>
       </Box>
      
     </>

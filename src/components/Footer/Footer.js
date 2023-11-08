@@ -6,16 +6,30 @@ import "../Header/Dashboard.css";
 const footer = () => {
   return (
     <footer>
-      <Box bgcolor="#000000" color="#ffffff" sx={{ p: 3 }}>
+      <Box
+        bgcolor="#000000"
+        color="#ffffff"
+        sx={{
+          p: 3,
+          a: {
+            color: "#fff",
+            textDecoration: "none",
+            "&:hover": { textDecoration: "underline" },
+            fontSize: { xs: "0.6rem", sm: "0.8rem", md: "0.9rem" }
+          }
+        }}
+      >
         <Container>
           <Grid container>
             <Grid item xs={6} sm={2.4}>
-              <img
-                width="100px"
-                height="20px"
-                src={"/Images/Small_Logo.jpg"}
-                alt="Small_logo"
-              />
+              <a href="/">
+                <img
+                  width="100px"
+                  height="20px"
+                  src={"/Images/Small_Logo.jpg"}
+                  alt="Small_logo"
+                />
+              </a>
             </Grid>
             <Grid item xs={6} sm={2.4}>
               <Box
@@ -38,13 +52,17 @@ const footer = () => {
                   Company
                 </Typography>
 
-                <Typography
-                  sx={{
-                    fontSize: { xs: "0.6rem", sm: "0.7rem", md: "0.8rem" }
-                  }}
-                >
-                  About Us
-                </Typography>
+                <a href="about-us">
+                  {" "}
+                  <Typography
+                    sx={{
+                      fontSize: { xs: "0.6rem", sm: "0.7rem", md: "0.8rem" }
+                    }}
+                  >
+                    About Us
+                  </Typography>
+                </a>
+
                 <Typography
                   fontFamily={"Open Sans"}
                   sx={{

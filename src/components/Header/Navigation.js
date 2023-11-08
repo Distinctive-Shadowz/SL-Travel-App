@@ -6,7 +6,7 @@ function Navigation() {
     <nav className="Nav">
       <div className="container">
         <div className="header">
-          <a href="/Home">
+          <a href="/">
             <img
               className="Logo_style"
               width="100px"
@@ -17,17 +17,17 @@ function Navigation() {
           </a>
           <ul>
             <li className="active">
-              <a href="/Hotels">Hotels</a>
+              <a href="/hotels">Hotels</a>
             </li>
             <li>
-              <a href="/Places">Places</a>
+              <a href="/places">Places</a>
             </li>
             <li>
-              <a href="/About_us">About Us</a>
+              <a href="/about-us">About Us</a>
             </li>
             <li>
               <div className="login_btn">
-                <a className="Login" href="/Login">
+                <a className="Login" href="/login">
                   Login
                 </a>
               </div>

@@ -92,7 +92,7 @@ export const HotelPopup:React.FC<{src:any}> =({src}) =>{
        
       </Button>
       </a>
-      <a href="Meal" target="_blank">
+      <a href="meal" >
        <Button
         variant="contained"
        
