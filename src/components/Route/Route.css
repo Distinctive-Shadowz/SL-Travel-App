@@ -5,7 +5,8 @@
 .left-side {
   flex: 1;
   padding: 20px;
-  margin-bottom: 700px;
+  /* margin-bottom: 700px; */
+  background-color: rgb(245, 230, 199);
 }
 
 .get-button{
@@ -23,7 +24,9 @@
   line-height: 5px;
 
 }
-
+.input-section {
+ padding:  1rem 0px;
+}
 .input-section-one{
   padding-inline: 30px;
 
@@ -36,15 +39,25 @@
 }
 
 .right-side {
-  flex: 1;
+  /* flex: 1; */
   padding: 20px;
+  background-color:rgb(245, 230, 199) ;
 
 }
 
-.routes-list {
+.route-list {
   margin-top: 20px;
+  display: flex;
+    align-items: center;
+    flex-direction: column;
+    
 }
-
+.routeCon{
+ background-color:rgb(245, 230, 199) ;
+ display: flex;
+ width: 100%;
+ 
+}
 .route {
   margin-bottom: 10px;
 }
@@ -69,11 +82,12 @@
 }
 
 .route-change-button {
-  margin-right: 950px;
-  padding: 5px 10px;
-  margin-left: -800px;
-  margin-bottom: 20px;
-  margin-top: -590px;
+  /* margin-right: 950px; */
+  /* padding: 5px 10px; */
+  /* margin-left: -800px; */
+  /* margin-bottom: 20px; */
+  /* margin-top: -590px; */
+  margin-top: 1.5rem;
   background-color: #000000;
   border-radius: 10px;
   border-color: black;
@@ -86,13 +100,16 @@
   font-size: medium;
   font-weight: bold;
   text-align: center;
+  margin-top: 18%;
   
 }
 
 .route-change-button.selected {
   background-color: #ccc;
 }
-
+.frame{
+  margin-bottom: 1.5rem;
+}
 .available-routes{
   color: chocolate;
   font-size: 2rem;

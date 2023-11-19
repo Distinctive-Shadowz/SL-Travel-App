@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import "./Home.css";
-import Link from '@mui/material/Link';
-
+import Link from "@mui/material/Link";
+import { Container, Box } from "@mui/material";
 function FormSection() {
   const startingFromRef = useRef(null);
   const destinationRef = useRef(null);
@@ -16,7 +16,9 @@ function FormSection() {
     const departureTime = departureTimeRef.current.value;
     const departureDate = departureDateRef.current.value;
     const arrivalDate = arrivalDateRef.current.value;
-    const vehicle = document.querySelector('input[name="Vehicle"]:checked').value;
+    const vehicle = document.querySelector(
+      'input[name="Vehicle"]:checked'
+    ).value;
 
     const printContents = `
       <h2>Trip Details:</h2>
@@ -56,25 +58,50 @@ function FormSection() {
         <p className="blink_me">Your Trip Starts From Here...</p>
         <p>
           <label htmlFor="startingFrom">From:</label>
-          <input id="startingFrom" className="input_style-one" placeholder="Starting From" ref={startingFromRef} />
+          <input
+            id="startingFrom"
+            className="input_style-one"
+            placeholder="Starting From"
+            ref={startingFromRef}
+          />
         </p>
         <p>
           <label htmlFor="destination">To:</label>
-          <input id="destination" className="input_style-two" placeholder="Destination" ref={destinationRef} />
+          <input
+            id="destination"
+            className="input_style-two"
+            placeholder="Destination"
+            ref={destinationRef}
+          />
         </p>
         <p>
           <label htmlFor="departureDate">Departure Date:</label>
-          <input id="departureDate" className="input_style-three" type="date" ref={departureDateRef} />
+          <input
+            id="departureDate"
+            className="input_style-three"
+            type="date"
+            ref={departureDateRef}
+          />
         </p>
         <p>
           <label htmlFor="arrivalDate">Arrival Date:</label>
-          <input id="arrivalDate" className="input_style-four" type="date" ref={arrivalDateRef} />
+          <input
+            id="arrivalDate"
+            className="input_style-four"
+            type="date"
+            ref={arrivalDateRef}
+          />
         </p>
       </div>
       <ul className="Vehicle_select">
         <li>
           <h5>Motor Cycle</h5>
-          <input type="radio" name="Vehicle" value="Motor Cycle" ref={vehicleRef} />
+          <input
+            type="radio"
+            name="Vehicle"
+            value="Motor Cycle"
+            ref={vehicleRef}
+          />
         </li>
         <li>
           <h5>Car</h5>
@@ -95,19 +122,43 @@ function FormSection() {
       </ul>
       <div className="Trip_start2">
         <p>
-          Departure Time :<input id="departureTime" className="input_style-five" type="time" ref={departureTimeRef} />
+          Departure Time :
+          <input
+            id="departureTime"
+            className="input_style-five"
+            type="time"
+            ref={departureTimeRef}
+          />
         </p>
       </div>
       <div>
-        <button className="print-button" onClick={handlePrint}>Print</button>
+        <button className="print-button" onClick={handlePrint}>
+          Print
+        </button>
       </div>
     </form>
   );
 }
 
+const SearchForm = () => {
+  return (
+    <>
+      <Container>
+        <Box sx={{ bgcolor: "#2c262b", width: "100%", height: "100px" }}>
+          <Box sx={{ display: "flex", p: "1rem", gap: "20px" }}>
+            <Box className="search_option_btn">Transport</Box>
+            <Box className="search_option_btn"> Hotels</Box>
+          </Box>
+        </Box>
+      </Container>
+    </>
+  );
+};
+
 function Home() {
   return (
     <div className="Home_body">
+      {/* <img src="Images/Home_Background.jpg" height="100%" width="100%" /> */}
       <div className="Title"></div>
       <div className="Quote">
         <h1>
@@ -116,9 +167,11 @@ function Home() {
       </div>
       <div>
         <FormSection />
+        {/* new searc formdesign */}
+        {/* <SearchForm /> */}
       </div>
       <p className="search_button">
-        <Link href="/Places" sx={{ textDecoration: "none"}}>
+        <Link href="/places" sx={{ textDecoration: "none" }}>
           Go to Map
         </Link>
       </p>
@@ -133,7 +186,7 @@ function Home() {
             >
               <img
                 className="Adv_img"
-                width="200px"
+                width="300px"
                 height="200px"
                 src={"/Images/Popular_attraction.jpg"}
                 alt="Adv_img"
@@ -149,7 +202,7 @@ function Home() {
             >
               <img
                 className="Adv_img"
-                width="200px"
+                width="300px"
                 height="200px"
                 src={"/Images/weather_update.jpeg"}
                 alt="Adv_img"
@@ -165,7 +218,7 @@ function Home() {
             >
               <img
                 className="Adv_img"
-                width="200px"
+                width="300px"
                 height="200px"
                 src={"/Images/tourism_news.jpg"}
                 alt="Adv_img"
