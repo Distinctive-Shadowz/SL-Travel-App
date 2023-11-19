@@ -171,7 +171,7 @@ function Home() {
         {/* <SearchForm /> */}
       </div>
       <p className="search_button">
-        <Link href="/Places" sx={{ textDecoration: "none" }}>
+        <Link href="/places" sx={{ textDecoration: "none" }}>
           Go to Map
         </Link>
       </p>
