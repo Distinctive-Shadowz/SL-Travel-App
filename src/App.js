@@ -22,7 +22,7 @@ function App() {
     case "/hotels":
       component = <Hotel />;
       break;
-    case "/about_us":
+    case "/about-us":
       component = <AboutUs />;
       break;
     case "/login":

@@ -1,9 +1,11 @@
 * {
   box-sizing: border-box;
+  
 }
 
 body {
   margin: 0;
+  /* background-color: rgb(245 230 199 / 24%); */
 }
 
 .Home_body {
@@ -11,7 +13,7 @@ body {
   background-image: url("/public/Images/Home_Background.jpg");
   background-size: contain;
   /* background-size: cover; */
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0px auto;
   background-repeat: no-repeat;
 }
