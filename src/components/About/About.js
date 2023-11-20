@@ -1,8 +1,8 @@
 import React from 'react';
-import "./About_us.css";
+import "./AboutUs.css";
 
 
-function About() {
+function aboutUs() {
     return (
       
         <div className='content'>  <h1 className="page-title">Welcome to SL Travel</h1><h2 className='sub-title'>Our Story</h2> <p>Welcome to SL Travel 2022! We're a team of four students who are passionate about helping people plan unforgettable trips to Sri Lanka.</p>
@@ -32,4 +32,4 @@ Thank you for choosing SL Travel 2022 for your travel planning needs. We look fo
     );
   }
   
-  export default About;
+  export default aboutUs;
