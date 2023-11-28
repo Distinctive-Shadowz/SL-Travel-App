@@ -3,6 +3,7 @@
 }
 
 .left-side {
+  width:40%;
   flex: 1;
   padding: 20px;
   /* margin-bottom: 700px; */
@@ -124,3 +125,8 @@
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
+.available-hotels{
+  color: #e7af1c;
+  font-size: 2rem;
+  text-align: center;
+}

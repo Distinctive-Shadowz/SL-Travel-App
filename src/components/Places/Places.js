@@ -1,11 +1,8 @@
-import React from 'react';
-import Route from "../Route/Route"
-
+import React from "react";
+import Route from "../Route/Route";
 
 function Places() {
-    return (
-      <Route/>
-    );
-  }
-  
-  export default Places;
+  return <Route />;
+}
+
+export default Places;

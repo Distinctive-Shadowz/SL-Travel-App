@@ -236,7 +236,8 @@ export const HotelCom: React.FC<{
   src: string;
   HotelName: string;
   mapSrc: string | null;
-}> = ({ src, HotelName, mapSrc }) => {
+  inplaces?:boolean;
+}> = ({ src, HotelName, mapSrc,inplaces }) => {
   return (
     <>
       <Box
@@ -244,7 +245,7 @@ export const HotelCom: React.FC<{
           boxShadow: 5,
           borderRadius: 2,
           m: "1rem",
-          width: { xs: "100%", sm: "200px", md: "200px" },
+          width: { xs: "100%", sm: "200px", md: inplaces?"240px": "200px" },
          
           ".img":{
             objectFit:'cover'

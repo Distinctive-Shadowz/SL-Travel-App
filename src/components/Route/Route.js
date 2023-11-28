@@ -8,8 +8,37 @@ import {
 import { IconButton } from "@mui/material";
 import "./Route.css";
 import { useLocation } from "react-router-dom";
+import {
+  Box,
+  CardContent,
+  CardMedia,
+  Container,
+  Grid,
+  Typography
+} from "@mui/material";
+import { HotelCom } from "../Hotel/Hotel";
+
+import Categories from "./../Hotel/Categories";
+
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
+// import required modules
+import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
 
 const Route = () => {
+  const [data, setData] = useState(Categories);
+  const filterResult = (catItem) => {
+    const result = Categories.filter((curData) => {
+      return curData.category === catItem;
+    });
+    setData(result);
+  };
   const [routes, setRoutes] = useState([]);
   const [sortedRoutes, setSortedRoutes] = useState([]);
   const [center, setCenter] = useState({
@@ -85,7 +114,7 @@ const Route = () => {
   const initMap = () => {
     // Your map initialization code here
   };
-
+  console.log("to", to);
   return (
     <div className="container">
       <div className="routeCon">
@@ -175,6 +204,100 @@ const Route = () => {
                 ))}
             </div>
           </div>
+          <h3 className="available-hotels">Places to stay near you</h3>
+
+          {/* <Grid item xs={12} sm={8} md={10}> */}
+          {/* <Box>
+            <Swiper
+              slidesPerView={2}
+              spaceBetween={0}
+              pagination={{
+                clickable: true
+              }}
+              modules={[Pagination]}
+              className="mySwiper"
+            >
+              {data.map((item) => {
+                if (item.category == to) {
+                  return (
+                    <SwiperSlide>
+                      <HotelCom
+                        key={item.id}
+                        src={item.src}
+                        HotelName={item.title}
+                        mapSrc={item.mapSrc}
+                      />
+                    </SwiperSlide>
+                  );
+                }
+
+                return null;
+              })}
+            </Swiper>
+          </Box> */}
+          <Box
+            sx={{
+              ".swiper-pagination-bullet-active": { background: "#e7af1c" },
+              ".swiper-wrapper": { mb: "2rem" },
+              ".swiper-pagination-bullet": {
+                width: "15px",
+                height: "15px"
+              }
+            }}
+          >
+            <Swiper
+              slidesPerView={2}
+              spaceBetween={0}
+              pagination={{
+                clickable: true
+              }}
+              modules={[Pagination]}
+              className="mySwiper"
+              // watchSlidesProgress={true}
+            >
+              {data.map((item) => {
+                if (item.category == to || item.category === "Negombo") {
+                  return (
+                    <SwiperSlide key={item.id}>
+                      <HotelCom
+                        inplaces
+                        src={item.src}
+                        HotelName={item.title}
+                        mapSrc={item.mapSrc}
+                      />
+                    </SwiperSlide>
+                  );
+                }
+
+                return null;
+              })}
+            </Swiper>
+          </Box>
+          {/* <Box
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                flexWrap: "wrap",
+                overflow: "auto",
+                maxHeight: "700px"
+              }}
+            >
+              {data.map((item) => {
+                if (item.category == to) {
+                  return (
+                    <HotelCom
+                      key={item.id}
+                      src={item.src}
+                      HotelName={item.title}
+                      mapSrc={item.mapSrc}
+                    />
+                  );
+                }
+
+                return null;
+              })}
+            </Box> */}
+          {/* </Grid> */}
         </div>
       </div>
     </div>
