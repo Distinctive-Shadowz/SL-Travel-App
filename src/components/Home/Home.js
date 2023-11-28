@@ -2,17 +2,23 @@ import React, { useState, useRef } from "react";
 import "./Home.css";
 import Link from "@mui/material/Link";
 import { Container, Box } from "@mui/material";
-function FormSection() {
-  const startingFromRef = useRef(null);
-  const destinationRef = useRef(null);
+import {
+  DirectionsService,
+  DirectionsRenderer,
+  GoogleMap,
+  Marker
+} from "@react-google-maps/api";
+import { IconButton } from "@mui/material";
+import { useLocation } from "react-router-dom";
+import Route from "../Route/Route"
+
+function FormSection({ selectedRoute, onSelectRoute }) {
   const departureTimeRef = useRef(null);
   const departureDateRef = useRef(null);
   const arrivalDateRef = useRef(null);
   const vehicleRef = useRef(null);
 
   const handlePrint = () => {
-    const startingFrom = startingFromRef.current.value;
-    const destination = destinationRef.current.value;
     const departureTime = departureTimeRef.current.value;
     const departureDate = departureDateRef.current.value;
     const arrivalDate = arrivalDateRef.current.value;
@@ -20,14 +26,20 @@ function FormSection() {
       'input[name="Vehicle"]:checked'
     ).value;
 
+ 
+
     const printContents = `
-      <h2>Trip Details:</h2>
-      <p><strong>From:</strong> ${startingFrom}</p>
-      <p><strong>To:</strong> ${destination}</p>
+      <h2>Trip Details</h2>
       <p><strong>Departure Date:</strong> ${departureDate}</p>
-      <p><strong>Arrival Date:</strong> ${arrivalDate}</p>
-      <p><strong>Vehicle:</strong> ${vehicle}</p>
       <p><strong>Departure Time:</strong> ${departureTime}</p>
+      <p><strong>Arrival Date:</strong> ${arrivalDate}</p>
+      ${selectedRoute ? `<p><strong>From:</strong> ${selectedRoute.legs[0].start_address}</p>
+      <p><strong>To:</strong> ${selectedRoute.legs[0].end_address}</p>
+      <p><strong>Route:</strong> ${selectedRoute.summary}</p>
+      <p><strong>Distance:</strong> ${selectedRoute.legs[0].distance.text}</p>
+      <p><strong>Duration:</strong> ${selectedRoute.legs[0].duration.text}</p>` : ''}
+      <p><strong>Vehicle:</strong> ${vehicle}</p>
+
     `;
 
     const printWindow = window.open("", "_blank");
@@ -35,11 +47,17 @@ function FormSection() {
     printWindow.document.write(`
       <html>
         <head>
-          <title>Trip Details</title>
+          <title>SL Travel - Trip Details</title>
           <style>
             @media print {
               body {
-                padding: 20px;
+                padding: 30% 26%;
+                font-size: 20px;
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                border-width: 2pt;
+                border-style: ridge;
+                border-color: rgb(0, 0, 0);
+                border-radius: 80pt 80pt 80pt 80pt;
               }
             }
           </style>
@@ -57,30 +75,21 @@ function FormSection() {
       <div className="Trip_start">
         <p className="blink_me">Your Trip Starts From Here...</p>
         <p>
-          <label htmlFor="startingFrom">From:</label>
-          <input
-            id="startingFrom"
-            className="input_style-one"
-            placeholder="Starting From"
-            ref={startingFromRef}
-          />
-        </p>
-        <p>
-          <label htmlFor="destination">To:</label>
-          <input
-            id="destination"
-            className="input_style-two"
-            placeholder="Destination"
-            ref={destinationRef}
-          />
-        </p>
-        <p>
           <label htmlFor="departureDate">Departure Date:</label>
           <input
             id="departureDate"
             className="input_style-three"
             type="date"
             ref={departureDateRef}
+          />
+        </p>
+        <p>
+          Departure Time :
+          <input
+            id="departureTime"
+            className="input_style-five"
+            type="time"
+            ref={departureTimeRef}
           />
         </p>
         <p>
@@ -92,6 +101,18 @@ function FormSection() {
             ref={arrivalDateRef}
           />
         </p>
+        {selectedRoute && (
+        <div className="selected-route-details">
+          <h4>Selected Route:</h4>
+          <p>Distance: {selectedRoute.legs[0].distance.text}</p>
+          <p>Duration: {selectedRoute.legs[0].duration.text}</p>
+          <p>Start: {selectedRoute.legs[0].start_address}</p>
+          <p>End: {selectedRoute.legs[0].end_address}</p>
+        </div>
+      )}
+        
+
+        
       </div>
       <ul className="Vehicle_select">
         <li>
@@ -120,17 +141,7 @@ function FormSection() {
           <input type="radio" name="Vehicle" value="Flight" ref={vehicleRef} />
         </li>
       </ul>
-      <div className="Trip_start2">
-        <p>
-          Departure Time :
-          <input
-            id="departureTime"
-            className="input_style-five"
-            type="time"
-            ref={departureTimeRef}
-          />
-        </p>
-      </div>
+      
       <div>
         <button className="print-button" onClick={handlePrint}>
           Print
@@ -156,6 +167,9 @@ const SearchForm = () => {
 };
 
 function Home() {
+    // State to store the selected route details
+    const [selectedRoute, setSelectedRoute] = useState(null);
+
   return (
     <div className="Home_body">
       {/* <img src="Images/Home_Background.jpg" height="100%" width="100%" /> */}
@@ -166,15 +180,12 @@ function Home() {
         </h1>
       </div>
       <div>
-        <FormSection />
+        <FormSection selectedRoute={selectedRoute}/>
         {/* new searc formdesign */}
         {/* <SearchForm /> */}
+      
+      <Route onSelectRoute={setSelectedRoute}/>
       </div>
-      <p className="search_button">
-        <Link href="/places" sx={{ textDecoration: "none" }}>
-          Go to Map
-        </Link>
-      </p>
       <div>
         <ul className="Advertise">
           <li>

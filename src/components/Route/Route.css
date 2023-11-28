@@ -1,16 +1,16 @@
 .container {
   display: flex;
+  max-width: 1700px;
 }
 
 .left-side {
   flex: 1;
-  padding: 20px;
+  margin: 100px 0;
   /* margin-bottom: 700px; */
-  background-color: rgb(245, 230, 199);
+  background-color: rgb(255, 255, 255);
 }
 
 .get-button{
-  margin-left: 10px;
   background-color: black;
   color: rgb(255, 255, 255);
   font-weight: bolder;
@@ -22,26 +22,32 @@
   border-color: rgb(255, 255, 255);
   border-radius: 80pt 80pt 80pt 80pt;
   line-height: 5px;
+  margin-left: 31.5%;
 
 }
 .input-section {
- padding:  1rem 0px;
+ padding:  1rem 120px;
+ margin-left: 405px;
 }
 .input-section-one{
-  padding-inline: 30px;
+  padding-inline: 50px;
+  background-color: rgb(0, 0, 0);
+  color: white;
 
 }
 
 .input-section-two{
-  padding-inline: 30px;
+  padding-inline: 50px;
   margin-left: 10px;
+  background-color: rgb(0, 0, 0);
+  color: white;
 
 }
 
 .right-side {
   /* flex: 1; */
-  padding: 20px;
-  background-color:rgb(245, 230, 199) ;
+  padding: 1px;
+  background-color:rgb(255, 255, 255) ;
 
 }
 
@@ -53,7 +59,7 @@
     
 }
 .routeCon{
- background-color:rgb(245, 230, 199) ;
+ background-color:rgb(255, 255, 255) ;
  display: flex;
  width: 100%;
  
@@ -101,6 +107,7 @@
   font-weight: bold;
   text-align: center;
   margin-top: 18%;
+  max-width: 500px;
   
 }
 
@@ -109,12 +116,16 @@
 }
 .frame{
   margin-bottom: 1.5rem;
+  border: 10px;
+  border-width: 10px;
+  border-color: #000000;
 }
 .available-routes{
   color: chocolate;
   font-size: 2rem;
   text-align: center;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
 }
 
 .selected-route{

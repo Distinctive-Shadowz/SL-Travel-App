@@ -5,11 +5,10 @@ import {
   GoogleMap,
   Marker
 } from "@react-google-maps/api";
-import { IconButton } from "@mui/material";
 import "./Route.css";
-import { useLocation } from "react-router-dom";
 
-const Route = () => {
+
+const Route = ({ onSelectRoute }) => {
   const [routes, setRoutes] = useState([]);
   const [sortedRoutes, setSortedRoutes] = useState([]);
   const [center, setCenter] = useState({
@@ -62,6 +61,10 @@ const Route = () => {
           if (status === "OK") {
             setDirections(response);
             setSelectedRoute(null);
+                        // Pass the selected route details back to the parent component (Home.js)
+            if (response.routes.length > 0) {
+              onSelectRoute(response.routes[0]);
+            }
           }
         }
       );
@@ -73,8 +76,9 @@ const Route = () => {
   };
 
   const mapContainerStyle = {
-    width: "100%",
-    height: "90vh"
+    margin: "0 50px",
+    width: "1200px",
+    height: "70vh"
   };
 
   const mapOptions = {
@@ -144,37 +148,14 @@ const Route = () => {
             ))}
           </div>
           <div className="route-change-button">
-            <h4 className="selected-route">Selected Route</h4>
-            {selectedRoute && (
-              <div className="route-details">
-                <h5>{selectedRoute.summary}</h5>
-                <p>Distance: {selectedRoute.legs[0].distance.text}</p>
-                <p>Duration: {selectedRoute.legs[0].duration.text}</p>
-                <p>Start: {selectedRoute.legs[0].start_address}</p>
-                <p>End: {selectedRoute.legs[0].end_address}</p>
-              </div>
-            )}
-
             <div className="route-list">
-              <h4 className="available-routes">Available Routes</h4>
-              {directions &&
-                directions.routes.map((route, index) => (
-                  <div
-                    key={index}
-                    className={`route-option ${
-                      selectedRoute === route ? "selected" : ""
-                    }`}
-                    onClick={() => handleSelectRoute(route)}
-                  >
-                    <h5>{route.summary}</h5>
-                    <p>Distance: {route.legs[0].distance.text}</p>
-                    <p>Duration: {route.legs[0].duration.text}</p>
-                    <p>Start: {route.legs[0].start_address}</p>
-                    <p>End: {route.legs[0].end_address}</p>
-                  </div>
-                ))}
+              <h4 className="available-routes">Recommended Hotels</h4>
+                    <p>Valampuri Hotel </p>
+                    <p>North Gate Hotel </p>
+                    <p>Peninsula Hotel </p>
+                    <p>Cinnamon Citadel </p>
             </div>
-          </div>
+          </div> 
         </div>
       </div>
     </div>
@@ -182,3 +163,4 @@ const Route = () => {
 };
 
 export default Route;
+
