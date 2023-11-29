@@ -1,7 +1,23 @@
 import React, { useState, useRef } from "react";
 import "./Home.css";
-import { Box } from "@mui/material";
+
 import { useNavigate } from "react-router-dom";
+import FlightTakeoffRoundedIcon from "@mui/icons-material/FlightTakeoffRounded";
+import { Box, Grid, Typography, TextField, Button } from "@mui/material";
+import CalendarStartIcon from "@mui/icons-material/TodayRounded";
+import TwoWheelerIcon from "@mui/icons-material/TwoWheeler";
+import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
+import DirectionsBusIcon from "@mui/icons-material/DirectionsBus";
+import TrainIcon from "@mui/icons-material/Train";
+import List from "@mui/joy/List";
+import ListItem from "@mui/joy/ListItem";
+import ListItemDecorator from "@mui/joy/ListItemDecorator";
+import Radio from "@mui/joy/Radio";
+import RadioGroup from "@mui/joy/RadioGroup";
+import Person from "@mui/icons-material/Person";
+import People from "@mui/icons-material/People";
+import Apartment from "@mui/icons-material/Apartment";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
 function FormSection() {
   const navigate = useNavigate();
   const startingFromRef = useRef(null);
@@ -63,101 +79,411 @@ function FormSection() {
     );
   };
   return (
-    <form>
-      <div className="Trip_start">
-        <p className="blink_me">Your Trip Starts From Here...</p>
-        <p>
-          <label htmlFor="startingFrom">From:</label>
-          <input
+    <>
+      <>
+        {/* <input
             id="startingFrom"
             className="input_style-one"
             placeholder="Starting From"
             ref={startingFromRef}
-          />
-        </p>
-        <p>
-          <label htmlFor="destination">To:</label>
-          <input
-            id="destination"
-            className="input_style-two"
-            placeholder="Destination"
-            ref={destinationRef}
-          />
-        </p>
-        <p>
-          <label htmlFor="departureDate">Departure Date:</label>
-          <input
-            id="departureDate"
-            className="input_style-three"
-            type="date"
-            ref={departureDateRef}
-          />
-        </p>
-        <p>
-          <label htmlFor="arrivalDate">Arrival Date:</label>
-          <input
-            id="arrivalDate"
-            className="input_style-four"
-            type="date"
-            ref={arrivalDateRef}
-          />
-        </p>
-      </div>
-      <ul className="Vehicle_select">
-        <li>
-          <h5>Motor Cycle</h5>
-          <input
-            type="radio"
-            name="Vehicle"
-            value="Motor Cycle"
-            ref={vehicleRef}
-          />
-        </li>
-        <li>
-          <h5>Car</h5>
-          <input type="radio" name="Vehicle" value="Car" ref={vehicleRef} />
-        </li>
-        <li>
-          <h5>Bus</h5>
-          <input type="radio" name="Vehicle" value="Bus" ref={vehicleRef} />
-        </li>
-        <li>
-          <h5>Train</h5>
-          <input type="radio" name="Vehicle" value="Train" ref={vehicleRef} />
-        </li>
-        <li>
-          <h5>Flight</h5>
-          <input type="radio" name="Vehicle" value="Flight" ref={vehicleRef} />
-        </li>
-      </ul>
-      <div className="Trip_start2">
-        <p>
-          Departure Time :
-          <input
-            id="departureTime"
-            className="input_style-five"
-            type="time"
-            ref={departureTimeRef}
-          />
-        </p>
-      </div>
-      <Box
-        sx={{
-          display: "flex",
-          gap: "5rem",
-          justifyContent: "center",
-          mt: "1rem",
-          mb: "1rem"
-        }}
-      >
-        <button className="print-button" onClick={handlePrint}>
-          Print
-        </button>
-        <button className="print-button" onClick={handlePrintlink}>
-          Go to Map
-        </button>
-      </Box>
-    </form>
+          /> */}
+        {/* ----------------------------- Leaving From ----------------------------- */}
+        <Box
+          component="form"
+          sx={{
+            transition: "all 0.5s",
+            bgcolor: "#fff",
+            minHeight: "5rem",
+            width: "50%",
+            left: "25%",
+            p: "1rem",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            borderRadius: "40px",
+            position: "relative",
+            backdropFilter: "blur(10px)",
+            border: "6px solid #000",
+            ".MuiOutlinedInput-notchedOutline": {
+              border: "0px solid #fff",
+              ml: -"10px"
+            },
+            ".MuiInputLabel-root": {
+              borderBottom: "1px solid #777",
+              width: "100%",
+              ml: "-10px",
+              pl: "0px"
+            },
+            ".css-1u3bzj6-MuiFormControl-root-MuiTextField-root": {
+              width: "100%",
+              ml: -"10px",
+              pl: "0px",
+              mt: "-12px"
+            },
+            ".MuiTypography-root": {
+              textAlign: "left",
+              ml: "5px",
+              color: "#444",
+              fontWeight: 600
+            }
+          }}
+          autoComplete="off"
+        >
+          <Grid container spacing={2}>
+            <Grid item lg={12}>
+              <p className="blink_me">Your Trip Starts From Here...</p>
+            </Grid>
+            <Grid
+              item
+              xs={6}
+              sm={6}
+              lg={6}
+              display="flex"
+              sx={{ alignItems: "center", justifyContent: "center" }}
+            >
+              <Box
+                sx={{
+                  minWidth: "60px",
+                  height: "60px",
+                  alignItems: "center",
+                  bgcolor: "#C4D7B482",
+                  borderRadius: "50%",
+                  mr: "8px",
+                  display: "grid",
+                  placeItems: "center"
+                }}
+              >
+                <FlightTakeoffRoundedIcon sx={{ color: "rgb(85 131 47)" }} />
+              </Box>
+              <Box sx={{ width: "calc(100% - 0px)", position: "relative" }}>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    display: "-webkit-box",
+                    lineHeight: 1.2,
+                    overflow: "hidden",
+                    WebkitLineClamp: 1,
+                    WebkitBoxOrient: "vertical",
+                    mt: "-1px",
+                    color: "#777"
+                  }}
+                >
+                  Leaving from
+                </Typography>
+                {/* <TextField
+                  id="outlined-controlled"
+                  label="Destination "
+                  // value={name}
+                  inputRef={startingFromRef}
+                /> */}
+                <input
+                  id="startingFrom"
+                  className="input_style-one"
+                  placeholder="Starting From"
+                  ref={startingFromRef}
+                />
+              </Box>
+            </Grid>
+            <Grid
+              item
+              xs={6}
+              sm={6}
+              lg={6}
+              display="flex"
+              sx={{ alignItems: "center", justifyContent: "center" }}
+            >
+              <Box
+                sx={{
+                  minWidth: "60px",
+                  height: "60px",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  bgcolor: "#C4D7B482",
+                  borderRadius: "50%",
+                  mr: "8px",
+                  display: "grid",
+                  placeItems: "center"
+                }}
+              >
+                <FlightTakeoffRoundedIcon sx={{ color: "rgb(85 131 47)" }} />
+              </Box>
+              <Box sx={{ width: "calc(100% - 0px)", position: "relative" }}>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    display: "-webkit-box",
+                    lineHeight: 1.2,
+                    overflow: "hidden",
+                    WebkitLineClamp: 1,
+                    WebkitBoxOrient: "vertical",
+                    mt: "-1px",
+                    color: "#777"
+                  }}
+                >
+                  Going to
+                </Typography>
+                <input
+                  id="startingFrom"
+                  className="input_style-one"
+                  placeholder="Starting From"
+                  ref={destinationRef}
+                />
+              </Box>
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              lg={6}
+              display="flex"
+              sx={{ alignItems: "center", justifyContent: "center" }}
+            >
+              <Box
+                sx={{
+                  minWidth: "60px",
+                  height: "60px",
+                  alignItems: "center",
+                  bgcolor: "#C4D7B482",
+                  borderRadius: "50%",
+                  mr: "8px",
+                  display: "grid",
+                  placeItems: "center"
+                }}
+              >
+                <CalendarStartIcon sx={{ color: "rgb(85 131 47)" }} />
+              </Box>
+              <Box sx={{ width: "calc(100% - 0px)", position: "relative" }}>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    display: "-webkit-box",
+                    lineHeight: 1.2,
+                    overflow: "hidden",
+                    WebkitLineClamp: 1,
+                    WebkitBoxOrient: "vertical",
+                    mt: "-1px",
+                    color: "#777"
+                  }}
+                >
+                  Departure Date
+                </Typography>
+                <input
+                  id="departureDate"
+                  className="input_style-three"
+                  type="date"
+                  ref={departureDateRef}
+                />
+              </Box>
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              lg={6}
+              display="flex"
+              sx={{ alignItems: "center", justifyContent: "center" }}
+            >
+              <Box
+                sx={{
+                  minWidth: "60px",
+                  height: "60px",
+                  alignItems: "center",
+                  bgcolor: "#C4D7B482",
+                  borderRadius: "50%",
+                  mr: "8px",
+                  display: "grid",
+                  placeItems: "center"
+                }}
+              >
+                <CalendarStartIcon sx={{ color: "rgb(85 131 47)" }} />
+              </Box>
+              <Box sx={{ width: "calc(100% - 0px)", position: "relative" }}>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    display: "-webkit-box",
+                    lineHeight: 1.2,
+                    overflow: "hidden",
+                    WebkitLineClamp: 1,
+                    WebkitBoxOrient: "vertical",
+                    mt: "-1px",
+                    color: "#777"
+                  }}
+                >
+                  Arrival Date
+                </Typography>
+                <input
+                  id="arrivalDate"
+                  className="input_style-four"
+                  type="date"
+                  ref={arrivalDateRef}
+                />
+              </Box>
+            </Grid>
+            <Grid
+              item
+              xs={6}
+              sm={6}
+              lg={12}
+              sx={{
+                gap: "5rem",
+                m: "1.5rem",
+                display: "flex",
+                flexDirection: "row",
+                ".MuiTypography-root": {
+                  textAlign: "left",
+                  ml: "5px",
+                  color: "#444",
+                  fontWeight: 600,
+                  fontSize: "14px"
+                }
+              }}
+            >
+              <RadioGroup
+                aria-label="Your plan"
+                name="people"
+                defaultValue="Individual"
+              >
+                <List
+                  sx={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    maxHeight: "fit-content",
+                    maxHeight: "1.2rem",
+                    gap: "1rem",
+                    "--List-gap": "0.5rem",
+                    "--ListItem-paddingY": "1rem",
+                    "--ListItem-radius": "8px",
+                    "--ListItemDecorator-size": "28px"
+                  }}
+                >
+                  {["Motor Cycle", "Car", "Bus", "Train"].map((item, index) => (
+                    <ListItem
+                      variant="outlined"
+                      key={item}
+                      sx={{ boxShadow: "sm" }}
+                    >
+                      <ListItemDecorator>
+                        {
+                          [
+                            <TwoWheelerIcon />,
+                            <DirectionsCarIcon />,
+                            <DirectionsBusIcon />,
+                            <TrainIcon />
+                          ][index]
+                        }
+                      </ListItemDecorator>
+                      <Radio
+                        overlay
+                        value={item}
+                        inputRef={vehicleRef}
+                        label={item}
+                        sx={{
+                          flexGrow: 1,
+                          flexDirection: "row-reverse",
+                          ".css-8kj30y-JoyRadio-icon": {
+                            color: "rgb(85 131 47)"
+                          }
+                        }}
+                        slotProps={{
+                          action: ({ checked }) => ({
+                            sx: (theme) => ({
+                              ...(checked && {
+                                inset: -1,
+                                border: "2px solid",
+                                borderColor: "rgb(85 131 47)",
+                                ".css-8kj30y-JoyRadio-icon": {
+                                  color: "rgb(85 131 47)"
+                                }
+                              })
+                            })
+                          })
+                        }}
+                      />
+                    </ListItem>
+                  ))}
+                </List>
+              </RadioGroup>
+            </Grid>
+            <Grid
+              item
+              xs={6}
+              sm={6}
+              lg={6}
+              display="flex"
+              sx={{ alignItems: "center", justifyContent: "center" }}
+            >
+              <Box
+                sx={{
+                  minWidth: "60px",
+                  height: "60px",
+                  alignItems: "center",
+                  bgcolor: "#C4D7B482",
+                  borderRadius: "50%",
+                  mr: "8px",
+                  display: "grid",
+                  placeItems: "center"
+                }}
+              >
+                <AccessTimeIcon sx={{ color: "rgb(85 131 47)" }} />
+              </Box>
+              <Box sx={{ width: "calc(100% - 0px)", position: "relative" }}>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    display: "-webkit-box",
+                    lineHeight: 1.2,
+                    overflow: "hidden",
+                    WebkitLineClamp: 1,
+                    WebkitBoxOrient: "vertical",
+                    mt: "-1px",
+                    color: "#777"
+                  }}
+                >
+                  Departure Time
+                </Typography>
+                <input
+                  id="departureTime"
+                  className="input_style-five"
+                  type="time"
+                  ref={departureTimeRef}
+                />
+              </Box>
+            </Grid>
+            <Grid item lg={6}>
+              <Box
+                sx={{
+                  display: "flex",
+                  gap: "2rem",
+                  justifyContent: "center",
+                  mt: "2rem",
+                  mb: "1rem"
+                }}
+              >
+                <Button
+                  variant="contained"
+                  color="success"
+                  onClick={handlePrint}
+                  sx={{ height: "3.2rem", width: "120px" }}
+                >
+                  Print
+                </Button>
+                <Button
+                  variant="contained"
+                  color="success"
+                  onClick={handlePrintlink}
+                  sx={{ height: "3.2rem", width: "130px" }}
+                >
+                  Go to Map
+                </Button>
+              </Box>
+            </Grid>
+          </Grid>
+        </Box>
+      </>
+    </>
   );
 }
 

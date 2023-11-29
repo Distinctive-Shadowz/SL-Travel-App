@@ -3,7 +3,7 @@ import { DirectionsRenderer, GoogleMap, Marker } from "@react-google-maps/api";
 import "./Route.css";
 import { Box } from "@mui/material";
 import { HotelCom } from "../Hotel/Hotel";
-
+import { useNavigate } from "react-router-dom";
 import Categories from "./../Hotel/Categories";
 
 // Import Swiper React components
@@ -18,6 +18,7 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper";
 
 const Route = () => {
+  const navigate = useNavigate();
   const queryParams = new URLSearchParams(window.location.search);
   const fromvaal = queryParams.get("from");
   const tovaall = queryParams.get("to");
@@ -60,18 +61,32 @@ const Route = () => {
 
     directionsService.route(
       {
-        origin: from || fromvaal,
-        destination: to || tovaall,
+        origin: from ? from : fromvaal,
+        destination: to ? to : tovaall,
         travelMode: "DRIVING"
       },
       (response, status) => {
         if (status === "OK") {
           setDirections(response);
           setSelectedRoute(null);
+          // Update URL parameters
+          const params = new URLSearchParams();
+          params.set("from", from || fromvaal);
+          params.set("to", to || tovaall);
+
+          navigate(`?${params.toString()}`);
         }
       }
     );
   };
+  useEffect(() => {
+    if (fromvaal !== null) {
+      setFrom(fromvaal);
+    }
+    if (tovaall !== null) {
+      setTo(tovaall);
+    }
+  }, [fromvaal, tovaall]);
 
   const mapContainerStyle = {
     width: "100%",
@@ -93,14 +108,15 @@ const Route = () => {
                 className="input-section-one"
                 type="text"
                 placeholder="From"
-                value={from || fromvaal}
+                value={from}
+                // value={fromvaal ? fromvaal : from}
                 onChange={(e) => setFrom(e.target.value)}
               />
               <input
                 className="input-section-two"
                 type="text"
                 placeholder="To"
-                value={to || tovaall}
+                value={to}
                 onChange={(e) => setTo(e.target.value)}
               />
               <button className="get-button" onClick={handleGetRoute}>
