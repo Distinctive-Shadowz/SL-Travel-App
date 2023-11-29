@@ -51,6 +51,7 @@
   display: flex;
     align-items: center;
     flex-direction: column;
+    margin-bottom: 1rem;
     
 }
 .routeCon{
@@ -102,6 +103,7 @@
   font-weight: bold;
   text-align: center;
   margin-top: 18%;
+  margin-bottom: -3rem;
   
 }
 
@@ -114,10 +116,16 @@
 .available-routes{
   color: chocolate;
   font-size: 2rem;
-  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  text-align: left;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-
+.route-option {
+  text-align: left;
+  font-weight: 300;
+  font-size: 1.2rem;
+}
 .selected-route{
   color: rgb(12, 82, 70);
   font-size: 2rem;
@@ -129,4 +137,5 @@
   color: #e7af1c;
   font-size: 2rem;
   text-align: center;
+   margin-top: 5.5rem;
 }

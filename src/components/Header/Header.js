@@ -1,10 +1,10 @@
 import React from "react";
 import Navigation from "./Navigation";
 
-const Header = () => {
+const Header = ({ from, to }) => {
   return (
     <header>
-      <Navigation />
+      <Navigation from={from} to={to} />
     </header>
   );
 };

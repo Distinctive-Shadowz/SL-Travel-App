@@ -1,23 +1,37 @@
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
-import Places from "./components/Places/Places";
+
 import Hotel from "./components/Hotel/Hotel";
 import AboutUs from "./components/Aboutus/AboutUs";
 
 import Login from "./components/Login/Login";
 import Footer from "./components/Footer/Footer";
 import Meal from "./components/Meal/Meal";
-import "./App.css";
 import Route from "./components/Route/Route";
+import "./App.css";
 
+import { useLocation } from "react-router-dom";
 function App() {
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  const from = params.get("from");
+  const to = params.get("to");
   let component;
   switch (window.location.pathname) {
     case "/":
       component = <Home />;
       break;
     case "/places":
-      component = <Route />;
+      // Extract query parameters
+      // const params = new URLSearchParams(location.search);
+      // const from = params.get("from");
+      // const to = params.get("to");
+
+      // Conditionally render based on query parameters
+      if (from === from && to === to) {
+        component = <Route />;
+      }
+
       break;
     case "/hotels":
       component = <Hotel />;
@@ -37,7 +51,7 @@ function App() {
   }
   return (
     <div>
-      <Header />
+      <Header from={from} to={to} />
       {component}
       <Footer />
     </div>

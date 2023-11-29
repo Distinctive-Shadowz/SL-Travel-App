@@ -133,14 +133,12 @@ body {
 }
 
 .print-button{
-  width: 100px;
+  width: fit-content;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: large;
   text-align: center;
   color: white;
   border: 1;
-  margin-left: 40%;
-  margin-top: 2px;
   border-width: 1.5px;
   border-style: solid;
   border-radius: 6px 6px 6px 6px;

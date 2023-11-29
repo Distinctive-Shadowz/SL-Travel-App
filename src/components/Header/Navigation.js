@@ -1,7 +1,7 @@
 import React from "react";
 import "./Dashboard.css";
 
-function Navigation() {
+function Navigation({ from, to }) {
   return (
     <nav className="Nav">
       <div className="container">
@@ -20,7 +20,9 @@ function Navigation() {
               <a href="/hotels">Hotels</a>
             </li>
             <li>
-              <a href="/places">Places</a>
+              <a href={`/places?from=${from ? from : ""}&to=${to ? to : ""}`}>
+                Places
+              </a>
             </li>
             <li>
               <a href="/about-us">About Us</a>
