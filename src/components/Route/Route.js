@@ -25,7 +25,7 @@ const Route = () => {
   const depdates = queryParams.get("depdates");
   const arrdates = queryParams.get("arrdates");
   const vehicle = queryParams.get("vehicle");
-  const arrtime = queryParams.get("arrtime");
+  const deptime = queryParams.get("deptime");
 
   const [data, setData] = useState(Categories);
   const [routes, setRoutes] = useState([]);
@@ -78,6 +78,10 @@ const Route = () => {
           const params = new URLSearchParams();
           params.set("from", from || fromvalue);
           params.set("to", to || tovalue);
+          params.set("depdates", depdates);
+          params.set("arrdates", arrdates);
+          params.set("vehicle", vehicle);
+          params.set("deptime", deptime);
 
           navigate(`?${params.toString()}`);
         }
@@ -116,7 +120,7 @@ const Route = () => {
     ${depdates ? `<p><strong>Departure Date:</strong> ${depdates}</p>` : ""}
     ${arrdates ? `<p><strong>Arrival Date:</strong> ${arrdates}</p>` : ""}
     ${vehicle ? `<p><strong>Vehicle:</strong> ${vehicle}</p>` : ""}
-    ${arrtime ? `<p><strong>Departure Time:</strong> ${arrtime}</p>` : ""}
+    ${deptime ? `<p><strong>Departure Time:</strong> ${deptime}</p>` : ""}
     ${directions?.routes
       .map(
         (route, index) => `
