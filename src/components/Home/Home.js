@@ -3,7 +3,14 @@ import "./Home.css";
 
 import { useNavigate } from "react-router-dom";
 import FlightTakeoffRoundedIcon from "@mui/icons-material/FlightTakeoffRounded";
-import { Box, Grid, Typography, TextField, Button } from "@mui/material";
+import {
+  Box,
+  Grid,
+  Typography,
+  TextField,
+  Button,
+  Backdrop
+} from "@mui/material";
 import CalendarStartIcon from "@mui/icons-material/TodayRounded";
 import TwoWheelerIcon from "@mui/icons-material/TwoWheeler";
 import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
@@ -78,6 +85,16 @@ function FormSection() {
       `/places?from=${startingFromRef.current.value}&to=${destinationRef.current.value}`
     );
   };
+  // backdrop
+  const [backDropOpen, setBackDropOpen] = useState(false);
+  const onFocusSearchForm = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+    setBackDropOpen(true);
+  };
+
   return (
     <>
       <>
@@ -88,6 +105,7 @@ function FormSection() {
             ref={startingFromRef}
           /> */}
         {/* ----------------------------- Leaving From ----------------------------- */}
+
         <Box
           component="form"
           sx={{
@@ -104,6 +122,7 @@ function FormSection() {
             position: "relative",
             backdropFilter: "blur(10px)",
             border: "6px solid #000",
+            Zindex: 2000,
             ".MuiOutlinedInput-notchedOutline": {
               border: "0px solid #fff",
               ml: -"10px"
@@ -128,6 +147,9 @@ function FormSection() {
             }
           }}
           autoComplete="off"
+          onFocus={() => {
+            onFocusSearchForm();
+          }}
         >
           <Grid container spacing={2}>
             <Grid item lg={12}>
@@ -179,7 +201,7 @@ function FormSection() {
                 <input
                   id="startingFrom"
                   className="input_style-one"
-                  placeholder="Starting From"
+                  placeholder="Leaving from"
                   ref={startingFromRef}
                 />
               </Box>
@@ -225,7 +247,7 @@ function FormSection() {
                 <input
                   id="startingFrom"
                   className="input_style-one"
-                  placeholder="Starting From"
+                  placeholder="Going to"
                   ref={destinationRef}
                 />
               </Box>
@@ -482,6 +504,16 @@ function FormSection() {
             </Grid>
           </Grid>
         </Box>
+        <Backdrop
+          sx={{
+            color: "#fff",
+            zIndex: -1,
+            backdropFilter: "blur(10px)",
+            display: { xs: "none", sm: "block" }
+          }}
+          open={backDropOpen}
+          onClick={() => setBackDropOpen(false)}
+        ></Backdrop>
       </>
     </>
   );
