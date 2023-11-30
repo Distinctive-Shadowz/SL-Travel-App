@@ -20,7 +20,11 @@ function Navigation({ from, to, depdates, arrdates, vehicle, arrtime }) {
               <a
                 href={`/places?from=${from ? from : ""}&to=${
                   to ? to : ""
-                }&depdates=${depdates}&arrdates=${arrdates}&vehicle=${vehicle}&deptime=${arrtime}`}
+                }&depdates=${depdates ? depdates : ""}&arrdates=${
+                  arrdates ? arrdates : ""
+                }&vehicle=${vehicle ? vehicle : ""}&deptime=${
+                  arrtime ? arrtime : ""
+                }`}
               >
                 Places
               </a>

@@ -20,8 +20,8 @@ import { Pagination } from "swiper";
 const Route = () => {
   const navigate = useNavigate();
   const queryParams = new URLSearchParams(window.location.search);
-  const fromvaal = queryParams.get("from");
-  const tovaall = queryParams.get("to");
+  const fromvalue = queryParams.get("from");
+  const tovalue = queryParams.get("to");
   const depdates = queryParams.get("depdates");
   const arrdates = queryParams.get("arrdates");
   const vehicle = queryParams.get("vehicle");
@@ -66,8 +66,8 @@ const Route = () => {
 
     directionsService.route(
       {
-        origin: from ? from : fromvaal,
-        destination: to ? to : tovaall,
+        origin: from ? from : fromvalue,
+        destination: to ? to : tovalue,
         travelMode: "DRIVING"
       },
       (response, status) => {
@@ -76,8 +76,8 @@ const Route = () => {
           setSelectedRoute(null);
           // Update URL parameters
           const params = new URLSearchParams();
-          params.set("from", from || fromvaal);
-          params.set("to", to || tovaall);
+          params.set("from", from || fromvalue);
+          params.set("to", to || tovalue);
 
           navigate(`?${params.toString()}`);
         }
@@ -85,13 +85,13 @@ const Route = () => {
     );
   };
   useEffect(() => {
-    if (fromvaal !== null) {
-      setFrom(fromvaal);
+    if (fromvalue !== null) {
+      setFrom(fromvalue);
     }
-    if (tovaall !== null) {
-      setTo(tovaall);
+    if (tovalue !== null) {
+      setTo(tovalue);
     }
-  }, [fromvaal, tovaall]);
+  }, [fromvalue, tovalue]);
 
   const mapContainerStyle = {
     height:
@@ -108,39 +108,55 @@ const Route = () => {
     center: center,
     zoom: 12
   };
-
   const handlePrint = () => {
     const printContents = `
-  <h2>Trip Details:</h2>
-  <p><strong>From:</strong> ${fromvaal}</p>
-  <p><strong>To:</strong> ${tovaall}</p>
-  <p><strong>Departure Date:</strong> ${depdates}</p>
-  <p><strong>Arrival Date:</strong> ${arrdates}</p>
-  <p><strong>Vehicle:</strong> ${vehicle}</p>
-  ${arrtime ? `<p><strong>Departure Time:</strong> ${arrtime}</p>` : ""}
-`;
+    <h2>Trip Details:</h2>
+    ${fromvalue ? `<p><strong>From:</strong> ${fromvalue}</p>` : ""}
+    ${tovalue ? `<p><strong>To:</strong> ${tovalue}</p>` : ""}
+    ${depdates ? `<p><strong>Departure Date:</strong> ${depdates}</p>` : ""}
+    ${arrdates ? `<p><strong>Arrival Date:</strong> ${arrdates}</p>` : ""}
+    ${vehicle ? `<p><strong>Vehicle:</strong> ${vehicle}</p>` : ""}
+    ${arrtime ? `<p><strong>Departure Time:</strong> ${arrtime}</p>` : ""}
+    ${directions?.routes
+      .map(
+        (route, index) => `
+      <div key=${index}>
+        <p><strong>Distance:</strong> ${route.legs[0].distance.text}</p>
+        <p><strong>Duration:</strong> ${route.legs[0].duration.text}</p>
+      </div>
+    `
+      )
+      .join("")}
+  `;
 
     const printWindow = window.open("", "_blank");
     printWindow.document.open();
     printWindow.document.write(`
-      <html>
-        <head>
-          <title>Trip Details</title>
-          <style>
-            @media print {
-              body {
-                padding: 20px;
-              }
+    <html>
+      <head>
+        <title>SL Travel - Trip Details</title>
+        <style>
+          @media print {
+            body {
+              padding: 30% 26%;
+              font-size: 20px;
+              font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+              border-width: 2pt;
+              border-style: ridge;
+              border-color: rgb(0, 0, 0);
+              border-radius: 80pt 80pt 80pt 80pt;
             }
-          </style>
-        </head>
-        <body>${printContents}</body>
-      </html>
-    `);
+          }
+        </style>
+      </head>
+      <body>${printContents}</body>
+    </html>
+  `);
     printWindow.document.close();
     printWindow.print();
     printWindow.close();
   };
+
   return (
     <>
       <div className="container">
@@ -160,7 +176,7 @@ const Route = () => {
                 type="text"
                 placeholder="From"
                 value={from}
-                // value={fromvaal ? fromvaal : from}
+                // value={fromvalue ? fromvalue : from}
                 onChange={(e) => setFrom(e.target.value)}
               />
               <input

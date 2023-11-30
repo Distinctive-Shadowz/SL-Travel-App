@@ -51,32 +51,46 @@ function FormSection() {
 
   const handlePrint = () => {
     const printContents = `
-      <h2>Trip Details:</h2>
-      <p><strong>From:</strong> ${startingFrom}</p>
-      <p><strong>To:</strong> ${destination}</p>
-      <p><strong>Departure Date:</strong> ${departureDate}</p>
-      <p><strong>Arrival Date:</strong> ${arrivalDate}</p>
-      <p><strong>Vehicle:</strong>  ${selectedValue}</p>
-      <p><strong>Departure Time:</strong> ${departureTime}</p>
-    `;
+    <h2>Trip Details:</h2>
+    ${startingFrom ? `<p><strong>From:</strong> ${startingFrom}</p>` : ""}
+    ${destination ? `<p><strong>To:</strong> ${destination}</p>` : ""}
+    ${
+      departureDate
+        ? `<p><strong>Departure Date:</strong> ${departureDate}</p>`
+        : ""
+    }
+    ${arrivalDate ? `<p><strong>Arrival Date:</strong> ${arrivalDate}</p>` : ""}
+    ${selectedValue ? `<p><strong>Vehicle:</strong> ${selectedValue}</p>` : ""}
+    ${
+      departureTime
+        ? `<p><strong>Departure Time:</strong> ${departureTime}</p>`
+        : ""
+    }
+  `;
 
     const printWindow = window.open("", "_blank");
     printWindow.document.open();
     printWindow.document.write(`
-      <html>
-        <head>
-          <title>Trip Details</title>
-          <style>
-            @media print {
-              body {
-                padding: 20px;
-              }
+    <html>
+      <head>
+        <title>SL Travel - Trip Details</title>
+        <style>
+          @media print {
+            body {
+              padding: 30% 26%;
+              font-size: 20px;
+              font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+              border-width: 2pt;
+              border-style: ridge;
+              border-color: rgb(0, 0, 0);
+              border-radius: 80pt 80pt 80pt 80pt;
             }
-          </style>
-        </head>
-        <body>${printContents}</body>
-      </html>
-    `);
+          }
+        </style>
+      </head>
+      <body>${printContents}</body>
+    </html>
+  `);
     printWindow.document.close();
     printWindow.print();
     printWindow.close();
@@ -90,7 +104,11 @@ function FormSection() {
     navigate(
       `/places?from=${startingFrom ? startingFrom : ""}&to=${
         destination ? destination : ""
-      }&depdates=${departureDate}&arrdates=${arrivalDate}&vehicle=${selectedValue}&deptime=${departureTime}`
+      }&depdates=${departureDate ? departureDate : ""}&arrdates=${
+        arrivalDate ? arrivalDate : ""
+      }&vehicle=${selectedValue ? selectedValue : ""}&deptime=${
+        departureTime ? departureTime : ""
+      }`
     );
   };
   // backdrop
