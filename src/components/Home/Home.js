@@ -42,16 +42,13 @@ function FormSection() {
     setSelectedValue(event.target.value);
   };
 
+  const startingFrom = startingFromRef?.current?.value;
+  const destination = destinationRef?.current?.value;
+  const departureTime = departureTimeRef?.current?.value;
+  const departureDate = departureDateRef?.current?.value;
+  const arrivalDate = arrivalDateRef?.current?.value;
+  console.log("departureTime", departureTime);
   const handlePrint = () => {
-    const startingFrom = startingFromRef?.current?.value;
-    const destination = destinationRef?.current?.value;
-    const departureTime = departureTimeRef?.current?.value;
-    const departureDate = departureDateRef?.current?.value;
-    const arrivalDate = arrivalDateRef?.current?.value;
-    // const vehicle = document.querySelector(
-    //   'input[name="Vehicle"]:checked'
-    // ).value;
-
     const printContents = `
       <h2>Trip Details:</h2>
       <p><strong>From:</strong> ${startingFrom}</p>
@@ -91,7 +88,9 @@ function FormSection() {
 
     // Navigate to the map page with form values
     navigate(
-      `/places?from=${startingFromRef.current.value}&to=${destinationRef.current.value}`
+      `/places?from=${startingFrom ? startingFrom : ""}&to=${
+        destination ? destination : ""
+      }&depdates=${departureDate}&arrdates=${arrivalDate}&vehicle=${selectedValue}&deptime=${departureTime}`
     );
   };
   // backdrop

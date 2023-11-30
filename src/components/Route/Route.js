@@ -22,6 +22,11 @@ const Route = () => {
   const queryParams = new URLSearchParams(window.location.search);
   const fromvaal = queryParams.get("from");
   const tovaall = queryParams.get("to");
+  const depdates = queryParams.get("depdates");
+  const arrdates = queryParams.get("arrdates");
+  const vehicle = queryParams.get("vehicle");
+  const arrtime = queryParams.get("arrtime");
+
   const [data, setData] = useState(Categories);
   const [routes, setRoutes] = useState([]);
   const [sortedRoutes, setSortedRoutes] = useState([]);
@@ -96,7 +101,39 @@ const Route = () => {
     center: center,
     zoom: 12
   };
-  console.log("data?.length ", data?.length);
+
+  const handlePrint = () => {
+    const printContents = `
+  <h2>Trip Details:</h2>
+  <p><strong>From:</strong> ${fromvaal}</p>
+  <p><strong>To:</strong> ${tovaall}</p>
+  <p><strong>Departure Date:</strong> ${depdates}</p>
+  <p><strong>Arrival Date:</strong> ${arrdates}</p>
+  <p><strong>Vehicle:</strong> ${vehicle}</p>
+  ${arrtime ? `<p><strong>Departure Time:</strong> ${arrtime}</p>` : ""}
+`;
+
+    const printWindow = window.open("", "_blank");
+    printWindow.document.open();
+    printWindow.document.write(`
+      <html>
+        <head>
+          <title>Trip Details</title>
+          <style>
+            @media print {
+              body {
+                padding: 20px;
+              }
+            }
+          </style>
+        </head>
+        <body>${printContents}</body>
+      </html>
+    `);
+    printWindow.document.close();
+    printWindow.print();
+    printWindow.close();
+  };
   return (
     <>
       <div className="container">
@@ -265,18 +302,16 @@ const Route = () => {
                   mb: "1rem"
                 }}
               >
-                <Link href="/">
-                  {" "}
-                  <Button
-                    variant="contained"
-                    color="success"
-                    // onClick={handlePrint}
-                    sx={{ height: "3.2rem", width: "120px" }}
-                  >
-                    Go Home
-                  </Button>
-                </Link>
-
+                {/* <Link href="/"> */}{" "}
+                <Button
+                  variant="contained"
+                  color="success"
+                  onClick={handlePrint}
+                  sx={{ height: "3.2rem", width: "120px" }}
+                >
+                  Print
+                </Button>
+                {/* </Link> */}
                 <Link href="/hotels">
                   {" "}
                   <Button

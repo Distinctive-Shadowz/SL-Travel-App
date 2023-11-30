@@ -16,6 +16,10 @@ function App() {
   const params = new URLSearchParams(location.search);
   const from = params.get("from");
   const to = params.get("to");
+  const depdates = params.get("depdates");
+  const arrdates = params.get("arrdates");
+  const vehicle = params.get("vehicle");
+  const arrtime = params.get("arrtime");
   let component;
   switch (window.location.pathname) {
     case "/":
@@ -28,7 +32,13 @@ function App() {
       // const to = params.get("to");
 
       // Conditionally render based on query parameters
-      if (from === from && to === to) {
+      if (
+        (from === from && to === to,
+        depdates === depdates,
+        arrdates === arrdates,
+        vehicle === vehicle,
+        arrtime === arrtime)
+      ) {
         component = <Route />;
       }
 
@@ -51,7 +61,14 @@ function App() {
   }
   return (
     <div>
-      <Header from={from} to={to} />
+      <Header
+        from={from}
+        to={to}
+        depdates={depdates}
+        arrdates={arrdates}
+        vehicle={vehicle}
+        arrtime={arrtime}
+      />
       {component}
       <Footer />
     </div>
