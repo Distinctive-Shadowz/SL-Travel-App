@@ -94,7 +94,14 @@ const Route = () => {
   }, [fromvaal, tovaall]);
 
   const mapContainerStyle = {
-    height: to.length < 0 ? "65vh" : directions ? "100vh" : "60vh"
+    height:
+      to.length < 0
+        ? "65vh"
+        : data.some((item) => item.category === to)
+        ? directions
+          ? "100vh"
+          : "60vh"
+        : "60vh"
   };
 
   const mapOptions = {
