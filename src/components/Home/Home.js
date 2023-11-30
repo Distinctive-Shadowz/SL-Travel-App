@@ -25,6 +25,7 @@ import Person from "@mui/icons-material/Person";
 import People from "@mui/icons-material/People";
 import Apartment from "@mui/icons-material/Apartment";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import Route from "../Route/Route";
 function FormSection() {
   const navigate = useNavigate();
   const startingFromRef = useRef(null);
@@ -33,16 +34,23 @@ function FormSection() {
   const departureDateRef = useRef(null);
   const arrivalDateRef = useRef(null);
   const vehicleRef = useRef(null);
+  // radio btn
+
+  const [selectedValue, setSelectedValue] = React.useState("Car");
+
+  const handleChange = (event) => {
+    setSelectedValue(event.target.value);
+  };
 
   const handlePrint = () => {
-    const startingFrom = startingFromRef.current.value;
-    const destination = destinationRef.current.value;
-    const departureTime = departureTimeRef.current.value;
-    const departureDate = departureDateRef.current.value;
-    const arrivalDate = arrivalDateRef.current.value;
-    const vehicle = document.querySelector(
-      'input[name="Vehicle"]:checked'
-    ).value;
+    const startingFrom = startingFromRef?.current?.value;
+    const destination = destinationRef?.current?.value;
+    const departureTime = departureTimeRef?.current?.value;
+    const departureDate = departureDateRef?.current?.value;
+    const arrivalDate = arrivalDateRef?.current?.value;
+    // const vehicle = document.querySelector(
+    //   'input[name="Vehicle"]:checked'
+    // ).value;
 
     const printContents = `
       <h2>Trip Details:</h2>
@@ -50,7 +58,8 @@ function FormSection() {
       <p><strong>To:</strong> ${destination}</p>
       <p><strong>Departure Date:</strong> ${departureDate}</p>
       <p><strong>Arrival Date:</strong> ${arrivalDate}</p>
-      <p><strong>Vehicle:</strong> ${vehicle}</p>
+      <p><strong>Vehicle:</strong>  ${selectedValue}</p>
+    
       <p><strong>Departure Time:</strong> ${departureTime}</p>
     `;
 
@@ -75,7 +84,7 @@ function FormSection() {
     printWindow.print();
     printWindow.close();
   };
-  console.log("{startingFromRef?.current?.value", startingFromRef);
+
   const handlePrintlink = (event) => {
     event.preventDefault();
     // Your existing code for extracting form values...
@@ -245,7 +254,7 @@ function FormSection() {
                   Going to
                 </Typography>
                 <input
-                  id="startingFrom"
+                  id="destination"
                   className="input_style-one"
                   placeholder="Going to"
                   ref={destinationRef}
@@ -400,6 +409,9 @@ function FormSection() {
                       <Radio
                         overlay
                         value={item}
+                        checked={selectedValue === item}
+                        onChange={handleChange}
+                        id="vehicle"
                         inputRef={vehicleRef}
                         label={item}
                         sx={{

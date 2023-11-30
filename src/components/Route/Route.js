@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { DirectionsRenderer, GoogleMap, Marker } from "@react-google-maps/api";
 import "./Route.css";
-import { Box } from "@mui/material";
+import { Box, Button, Link } from "@mui/material";
 import { HotelCom } from "../Hotel/Hotel";
 import { useNavigate } from "react-router-dom";
 import Categories from "./../Hotel/Categories";
@@ -89,7 +89,7 @@ const Route = () => {
   }, [fromvaal, tovaall]);
 
   const mapContainerStyle = {
-    height: to.length < 0 ? "65vh" : directions ? "100vh" : "50vh"
+    height: to.length < 0 ? "65vh" : directions ? "100vh" : "60vh"
   };
 
   const mapOptions = {
@@ -100,7 +100,10 @@ const Route = () => {
   return (
     <>
       <div className="container">
-        <div className="routeCon">
+        <Box
+          className="routeCon"
+          sx={{ flexDirection: to.length > 0 ? "row" : "column" }}
+        >
           <Box
             className="right-side"
             sx={{
@@ -158,7 +161,15 @@ const Route = () => {
               </GoogleMap>
             </Box>
           </Box>
-          <div className="left-side">
+
+          <Box
+            className="left-side"
+            sx={{
+              display:
+                to.length > 0 ? "block" : !directions ? "inline-flex" : "block"
+              // to.length > 0 ? "block" : !directions ? "inline-flex" : "block"
+            }}
+          >
             <Box
               className="routes-list"
               sx={{ mt: to.length > 0 ? "5rem" : "1rem" }}
@@ -194,7 +205,6 @@ const Route = () => {
                 </div>
               </div>
             )}
-
             <Box
               sx={{
                 ".swiper-pagination-bullet-active": { background: "#e7af1c" },
@@ -239,8 +249,49 @@ const Route = () => {
                 })}
               </Swiper>
             </Box>
-          </div>
-        </div>
+            <Box
+              sx={{
+                position: "relative",
+                bottom: "0px",
+                right: "0px"
+              }}
+            >
+              <Box
+                sx={{
+                  display: "flex",
+                  gap: "2rem",
+                  justifyContent: "flex-end",
+                  mt: "0rem",
+                  mb: "1rem"
+                }}
+              >
+                <Link href="/">
+                  {" "}
+                  <Button
+                    variant="contained"
+                    color="success"
+                    // onClick={handlePrint}
+                    sx={{ height: "3.2rem", width: "120px" }}
+                  >
+                    Go Home
+                  </Button>
+                </Link>
+
+                <Link href="/hotels">
+                  {" "}
+                  <Button
+                    variant="contained"
+                    color="success"
+                    // onClick={handlePrintlink}
+                    sx={{ height: "3.2rem", width: "130px" }}
+                  >
+                    Go Hotel
+                  </Button>
+                </Link>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
       </div>
     </>
   );
