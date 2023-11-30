@@ -89,20 +89,24 @@ const Route = () => {
   }, [fromvaal, tovaall]);
 
   const mapContainerStyle = {
-    width: "100%",
-    height: directions == null ? "62vh" : "110vh"
+    height: to.length < 0 ? "65vh" : directions ? "100vh" : "50vh"
   };
 
   const mapOptions = {
     center: center,
     zoom: 12
   };
-
+  console.log("data?.length ", data?.length);
   return (
     <>
       <div className="container">
         <div className="routeCon">
-          <div className="right-side">
+          <Box
+            className="right-side"
+            sx={{
+              width: "100%"
+            }}
+          >
             <div className="input-section">
               <input
                 className="input-section-one"
@@ -123,7 +127,16 @@ const Route = () => {
                 Get Route
               </button>
             </div>
-            <div className="frame">
+            <Box
+              className="frame"
+              sx={{
+                width: directions
+                  ? "100%"
+                  : to?.length > 0
+                  ? "100% !important"
+                  : "100%"
+              }}
+            >
               <GoogleMap
                 mapContainerStyle={mapContainerStyle}
                 options={mapOptions}
@@ -143,10 +156,13 @@ const Route = () => {
                     <DirectionsRenderer key={index} directions={directions} />
                   ))}
               </GoogleMap>
-            </div>
-          </div>
+            </Box>
+          </Box>
           <div className="left-side">
-            <div className="routes-list">
+            <Box
+              className="routes-list"
+              sx={{ mt: to.length > 0 ? "5rem" : "1rem" }}
+            >
               {sortedRoutes.map((route) => (
                 <div className="route" key={route.id}>
                   <h4>{route.name}</h4>
@@ -155,7 +171,7 @@ const Route = () => {
                   <p>{route.details}</p>
                 </div>
               ))}
-            </div>
+            </Box>
             {directions !== null && (
               <div className="route-change-button">
                 <div className="route-list">
@@ -178,7 +194,6 @@ const Route = () => {
                 </div>
               </div>
             )}
-            <h3 className="available-hotels">Places to stay near you</h3>
 
             <Box
               sx={{
@@ -187,7 +202,8 @@ const Route = () => {
                 ".swiper-pagination-bullet": {
                   width: "15px",
                   height: "15px"
-                }
+                },
+                mt: "5rem"
               }}
             >
               <Swiper
@@ -201,16 +217,21 @@ const Route = () => {
                 // watchSlidesProgress={true}
               >
                 {data.map((item) => {
-                  if (item.category == to || item.category === "Negombo") {
+                  if (item.category == to) {
                     return (
-                      <SwiperSlide key={item.id}>
-                        <HotelCom
-                          inplaces
-                          src={item.src}
-                          HotelName={item.title}
-                          mapSrc={item.mapSrc}
-                        />
-                      </SwiperSlide>
+                      <>
+                        <h3 className="available-hotels">
+                          Places to stay near you
+                        </h3>
+                        <SwiperSlide key={item.id}>
+                          <HotelCom
+                            inplaces
+                            src={item.src}
+                            HotelName={item.title}
+                            mapSrc={item.mapSrc}
+                          />
+                        </SwiperSlide>
+                      </>
                     );
                   }
 

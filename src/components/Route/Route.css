@@ -3,7 +3,7 @@
 }
 
 .left-side {
-  width:40%;
+  width:50%;
   flex: 1;
   padding: 20px;
   /* margin-bottom: 700px; */
@@ -27,6 +27,7 @@
 }
 .input-section {
  padding:  1rem 0px;
+ width:105%
 }
 .input-section-one{
   padding-inline: 30px;
