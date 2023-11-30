@@ -30,7 +30,8 @@ const Hotel = () => {
   const [data, setData] = useState(Categories);
   const filterResult = (catItem: any) => {
     const result = Categories.filter((curData) => {
-      return curData.category === catItem;
+      //@ts-ignore
+      return curData.category.toUpperCase() === catItem.toUpperCase();
     });
     setData(result);
   };
@@ -51,7 +52,9 @@ const Hotel = () => {
                   borderRadius: "10px",
                   display: "flex",
                   justifyContent: "center",
-                  alignItems: "center",
+                alignItems: "center",
+                  textTransform:"capitalize"
+
                 }}
                 onClick={() => filterResult("kandy")}
               >
@@ -67,7 +70,9 @@ const Hotel = () => {
                   borderRadius: "10px",
                   display: "flex",
                   justifyContent: "center",
-                  alignItems: "center",
+                alignItems: "center",
+                  textTransform:"capitalize"
+                 
                 }}
                 onClick={() => filterResult("jaffna")}
               >
@@ -83,7 +88,8 @@ const Hotel = () => {
                   borderRadius: "10px",
                   display: "flex",
                   justifyContent: "center",
-                  alignItems: "center",
+                alignItems: "center",
+                  textTransform:"capitalize"
                 }}
                 onClick={() => filterResult("Galle")}
               >
@@ -98,7 +104,8 @@ const Hotel = () => {
                   borderRadius: "10px",
                   display: "flex",
                   justifyContent: "center",
-                  alignItems: "center",
+                alignItems: "center",
+                  textTransform:"capitalize"
                 }}
                 onClick={() => filterResult("Negombo")}
               >
@@ -113,7 +120,8 @@ const Hotel = () => {
                   borderRadius: "10px",
                   display: "flex",
                   justifyContent: "center",
-                  alignItems: "center",
+                alignItems: "center",
+                  textTransform:"capitalize"
                 }}
                 onClick={() => filterResult("Nuwara Eliya")}
               >
@@ -128,7 +136,8 @@ const Hotel = () => {
                   borderRadius: "10px",
                   display: "flex",
                   justifyContent: "center",
-                  alignItems: "center",
+                alignItems: "center",
+                  textTransform:"capitalize"
                 }}
                 onClick={() => filterResult("Anuradhapura")}
               >
@@ -144,7 +153,8 @@ const Hotel = () => {
                   borderRadius: "10px",
                   display: "flex",
                   justifyContent: "center",
-                  alignItems: "center",
+                alignItems: "center",
+                  textTransform:"capitalize"
                 }}
                 onClick={() => filterResult("Colombo")}
               >
@@ -159,7 +169,8 @@ const Hotel = () => {
                   borderRadius: "10px",
                   display: "flex",
                   justifyContent: "center",
-                  alignItems: "center",
+                alignItems: "center",
+                  textTransform:"capitalize"
                 }}
                 onClick={() => filterResult("Ampara")}
               >
@@ -174,7 +185,8 @@ const Hotel = () => {
                   borderRadius: "10px",
                   display: "flex",
                   justifyContent: "center",
-                  alignItems: "center",
+                alignItems: "center",
+                  textTransform:"capitalize"
                 }}
                 onClick={() => setData(Categories)}
               >
@@ -271,30 +283,3 @@ export const HotelCom: React.FC<{
   );
 };
 
-// const DistrictName: React.FC<{ title: string;onClick:void() }> = ({ title,onClick }) => {
-//   const [data, setData] = useState(Categories);
-//   const filterResult = (catItem: any) => {
-//     const result = Categories.filter((curData) => {
-//       return curData.category === catItem;
-//     });
-//     setData(result);
-//   };
-//   return (
-//     <Box
-//       sx={{
-//         width: "100%",
-//         height: "50px",
-//         bgcolor: "#e7af1c",
-//         my: "10px",
-//         borderRadius: "10px",
-//         display: "flex",
-//         justifyContent: "center",
-//         alignItems: "center",
-//       }}
-//       onClick={()=>onClick}
-//       // onClick={() => filterResult({ title })}
-//     >
-//       {title}
-//     </Box>
-//   );
-// };

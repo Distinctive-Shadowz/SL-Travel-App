@@ -2,7 +2,7 @@ import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 
 import Hotel from "./components/Hotel/Hotel";
-import AboutUs from "./components/Aboutus/AboutUs";
+import AboutUs from "./components/About/About";
 
 import Login from "./components/Login/Login";
 import Footer from "./components/Footer/Footer";

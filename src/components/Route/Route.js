@@ -66,8 +66,12 @@ const Route = () => {
 
     directionsService.route(
       {
-        origin: from ? from : fromvalue,
-        destination: to ? to : tovalue,
+        origin: from
+          ? from.toUpperCase() || from.toLowerCase()
+          : fromvalue.toUpperCase() || fromvalue.toLowerCase(),
+        destination: to
+          ? to.toUpperCase() || to.toLowerCase()
+          : tovalue.toUpperCase() || tovalue.toUpperCase(),
         travelMode: "DRIVING"
       },
       (response, status) => {
@@ -101,7 +105,11 @@ const Route = () => {
     height:
       to.length < 0
         ? "65vh"
-        : data.some((item) => item.category === to)
+        : data.some(
+            (item) =>
+              item.category.toUpperCase() === to.toUpperCase() ||
+              item.category.toLowerCase() === to.toLowerCase()
+          )
         ? directions
           ? "100vh"
           : "60vh"
@@ -291,7 +299,10 @@ const Route = () => {
                 // watchSlidesProgress={true}
               >
                 {data.map((item) => {
-                  if (item.category == to) {
+                  if (
+                    item.category.toUpperCase() === to.toUpperCase() ||
+                    item.category.toLowerCase() === to.toLowerCase()
+                  ) {
                     return (
                       <>
                         <h3 className="available-hotels">

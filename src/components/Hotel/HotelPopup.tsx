@@ -84,7 +84,7 @@ export const HotelPopup:React.FC<{src:any}> =({src}) =>{
           left: "0px",
           mt: "0.5rem",
           maxWidth:'fit-content',
-
+          
           
         }}
       >
