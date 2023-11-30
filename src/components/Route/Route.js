@@ -144,7 +144,7 @@ const Route = () => {
           <Box
             className="right-side"
             sx={{
-              width: "100%"
+              width: !directions ? "100%" : "52%"
             }}
           >
             <div className="input-section">

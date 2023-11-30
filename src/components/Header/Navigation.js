@@ -16,9 +16,6 @@ function Navigation({ from, to, depdates, arrdates, vehicle, arrtime }) {
             />
           </a>
           <ul>
-            <li className="active">
-              <a href="/hotels">Hotels</a>
-            </li>
             <li>
               <a
                 href={`/places?from=${from ? from : ""}&to=${
@@ -27,6 +24,9 @@ function Navigation({ from, to, depdates, arrdates, vehicle, arrtime }) {
               >
                 Places
               </a>
+            </li>
+            <li className="active">
+              <a href="/hotels">Hotels</a>
             </li>
             <li>
               <a href="/about-us">About Us</a>
