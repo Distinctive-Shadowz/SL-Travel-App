@@ -134,21 +134,7 @@ const Hotel = () => {
               >
                 Anuradhapura
               </Box>
-              <Box
-                sx={{
-                  width: "100%",
-                  height: "50px",
-                  bgcolor: "#e7af1c",
-                  my: "10px",
-                  borderRadius: "10px",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-                onClick={() => filterResult("Anuradhapura")}
-              >
-                Anuradhapura
-              </Box>
+             
               <Box
                 sx={{
                   width: "100%",

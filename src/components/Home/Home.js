@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./Home.css";
 
 import { useNavigate } from "react-router-dom";
@@ -34,8 +34,10 @@ function FormSection() {
   const departureDateRef = useRef(null);
   const arrivalDateRef = useRef(null);
   const vehicleRef = useRef(null);
-  // radio btn
 
+  const [departureTime, setDepartureTime] = useState("");
+
+  // radio btn
   const [selectedValue, setSelectedValue] = React.useState("Car");
 
   const handleChange = (event) => {
@@ -44,10 +46,9 @@ function FormSection() {
 
   const startingFrom = startingFromRef?.current?.value;
   const destination = destinationRef?.current?.value;
-  const departureTime = departureTimeRef?.current?.value;
   const departureDate = departureDateRef?.current?.value;
   const arrivalDate = arrivalDateRef?.current?.value;
-  console.log("departureTime", departureTime);
+
   const handlePrint = () => {
     const printContents = `
       <h2>Trip Details:</h2>
@@ -56,7 +57,6 @@ function FormSection() {
       <p><strong>Departure Date:</strong> ${departureDate}</p>
       <p><strong>Arrival Date:</strong> ${arrivalDate}</p>
       <p><strong>Vehicle:</strong>  ${selectedValue}</p>
-    
       <p><strong>Departure Time:</strong> ${departureTime}</p>
     `;
 
@@ -482,6 +482,7 @@ function FormSection() {
                   className="input_style-five"
                   type="time"
                   ref={departureTimeRef}
+                  onChange={(e) => setDepartureTime(e.target.value)}
                 />
               </Box>
             </Grid>

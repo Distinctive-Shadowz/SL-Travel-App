@@ -9,7 +9,7 @@ body {
 }
 
 .Home_body {
-  background-color: rgb(245, 230, 199);
+  /* background-color: rgb(245, 230, 199); */
   background-image: url("/public/Images/Home_Background.jpg");
   background-size: contain;
   /* background-size: cover; */
@@ -29,6 +29,11 @@ body {
 .Quote {
   text-align: center;
   font-family: "Dancing Script", cursive;
+  font-size: 25px;
+  text-align: center;
+  position: relative;
+  right: 50px;
+  
 }
 
 .Vehicle_select {
