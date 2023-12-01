@@ -9,7 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 // import HotelPopup from "./HotelPopup.tsx";
-
+import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 // import CommonHero from "../Common/CommonHero.tsx";
 import hotel from "../Images/hotel1.jpg";
@@ -27,14 +27,34 @@ import Categories from "./Categories";
 import { HotelPopup } from "./HotelPopup";
 
 const Hotel = () => {
+  const navigate = useNavigate();
   const [data, setData] = useState(Categories);
   const filterResult = (catItem: any) => {
     const result = Categories.filter((curData) => {
-      return curData.category === catItem;
+      //@ts-ignore
+      return curData.category.toUpperCase() === catItem.toUpperCase();
     });
     setData(result);
   };
+const queryParams = new URLSearchParams(window.location.search);
+  const from = queryParams?.get("from");
+  const to= queryParams.get("to");
+  const depdates = queryParams.get("depdates");
+  const arrdates = queryParams.get("arrdates");
+  const vehicle = queryParams.get("vehicle");
+  const deptime = queryParams.get("deptime");
 
+    const goMeal = () => {
+    const params = new URLSearchParams();
+    params.set("from", from  ?from:"");
+    params.set("to", to ?to:"");
+    params.set("depdates", depdates?depdates:"");
+    params.set("arrdates", arrdates ?arrdates:"");
+    params.set("vehicle", vehicle ?vehicle:"");
+    params.set("deptime", deptime ?deptime:"");
+
+    navigate(`/meals?${params.toString()}`);
+  };
   return (
     <>
       <CommonHero src={"/Images/hotel1.jpg"} title={"Hotel"} />
@@ -51,7 +71,9 @@ const Hotel = () => {
                   borderRadius: "10px",
                   display: "flex",
                   justifyContent: "center",
-                  alignItems: "center",
+                alignItems: "center",
+                  textTransform:"capitalize"
+
                 }}
                 onClick={() => filterResult("kandy")}
               >
@@ -67,7 +89,9 @@ const Hotel = () => {
                   borderRadius: "10px",
                   display: "flex",
                   justifyContent: "center",
-                  alignItems: "center",
+                alignItems: "center",
+                  textTransform:"capitalize"
+                 
                 }}
                 onClick={() => filterResult("jaffna")}
               >
@@ -83,7 +107,8 @@ const Hotel = () => {
                   borderRadius: "10px",
                   display: "flex",
                   justifyContent: "center",
-                  alignItems: "center",
+                alignItems: "center",
+                  textTransform:"capitalize"
                 }}
                 onClick={() => filterResult("Galle")}
               >
@@ -98,7 +123,8 @@ const Hotel = () => {
                   borderRadius: "10px",
                   display: "flex",
                   justifyContent: "center",
-                  alignItems: "center",
+                alignItems: "center",
+                  textTransform:"capitalize"
                 }}
                 onClick={() => filterResult("Negombo")}
               >
@@ -113,7 +139,8 @@ const Hotel = () => {
                   borderRadius: "10px",
                   display: "flex",
                   justifyContent: "center",
-                  alignItems: "center",
+                alignItems: "center",
+                  textTransform:"capitalize"
                 }}
                 onClick={() => filterResult("Nuwara Eliya")}
               >
@@ -128,12 +155,14 @@ const Hotel = () => {
                   borderRadius: "10px",
                   display: "flex",
                   justifyContent: "center",
-                  alignItems: "center",
+                alignItems: "center",
+                  textTransform:"capitalize"
                 }}
                 onClick={() => filterResult("Anuradhapura")}
               >
                 Anuradhapura
               </Box>
+             
               <Box
                 sx={{
                   width: "100%",
@@ -143,22 +172,8 @@ const Hotel = () => {
                   borderRadius: "10px",
                   display: "flex",
                   justifyContent: "center",
-                  alignItems: "center",
-                }}
-                onClick={() => filterResult("Anuradhapura")}
-              >
-                Anuradhapura
-              </Box>
-              <Box
-                sx={{
-                  width: "100%",
-                  height: "50px",
-                  bgcolor: "#e7af1c",
-                  my: "10px",
-                  borderRadius: "10px",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
+                alignItems: "center",
+                  textTransform:"capitalize"
                 }}
                 onClick={() => filterResult("Colombo")}
               >
@@ -173,7 +188,8 @@ const Hotel = () => {
                   borderRadius: "10px",
                   display: "flex",
                   justifyContent: "center",
-                  alignItems: "center",
+                alignItems: "center",
+                  textTransform:"capitalize"
                 }}
                 onClick={() => filterResult("Ampara")}
               >
@@ -188,7 +204,8 @@ const Hotel = () => {
                   borderRadius: "10px",
                   display: "flex",
                   justifyContent: "center",
-                  alignItems: "center",
+                alignItems: "center",
+                  textTransform:"capitalize"
                 }}
                 onClick={() => setData(Categories)}
               >
@@ -209,6 +226,7 @@ const Hotel = () => {
                     src={item.src}
                     HotelName={item.title}
                     mapSrc={item.mapSrc}
+                    goMeal={goMeal}
                   />
                 );
               })}
@@ -236,7 +254,9 @@ export const HotelCom: React.FC<{
   src: string;
   HotelName: string;
   mapSrc: string | null;
-}> = ({ src, HotelName, mapSrc }) => {
+  inplaces?:boolean;
+  goMeal:any
+}> = ({ src, HotelName, mapSrc,inplaces ,goMeal}) => {
   return (
     <>
       <Box
@@ -244,7 +264,7 @@ export const HotelCom: React.FC<{
           boxShadow: 5,
           borderRadius: 2,
           m: "1rem",
-          width: { xs: "100%", sm: "200px", md: "200px" },
+          width: { xs: "100%", sm: "200px", md: inplaces?"240px": "200px" },
          
           ".img":{
             objectFit:'cover'
@@ -277,37 +297,10 @@ export const HotelCom: React.FC<{
             {/* The Lucky Elepahant Hotel in Hikkaduwa */}
             {HotelName}
           </Typography>
-          <HotelPopup src={mapSrc} />
+          <HotelPopup src={mapSrc} goMeal={goMeal} />
         </CardContent>
       </Box>
     </>
   );
 };
 
-// const DistrictName: React.FC<{ title: string;onClick:void() }> = ({ title,onClick }) => {
-//   const [data, setData] = useState(Categories);
-//   const filterResult = (catItem: any) => {
-//     const result = Categories.filter((curData) => {
-//       return curData.category === catItem;
-//     });
-//     setData(result);
-//   };
-//   return (
-//     <Box
-//       sx={{
-//         width: "100%",
-//         height: "50px",
-//         bgcolor: "#e7af1c",
-//         my: "10px",
-//         borderRadius: "10px",
-//         display: "flex",
-//         justifyContent: "center",
-//         alignItems: "center",
-//       }}
-//       onClick={()=>onClick}
-//       // onClick={() => filterResult({ title })}
-//     >
-//       {title}
-//     </Box>
-//   );
-// };

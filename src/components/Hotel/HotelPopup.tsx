@@ -55,7 +55,7 @@ function BootstrapDialogTitle(props: DialogTitleProps) {
 
 
 
-export const HotelPopup:React.FC<{src:any}> =({src}) =>{
+export const HotelPopup:React.FC<{src:any;goMeal:any}> =({src,goMeal}) =>{
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState<null| number>(2);
 
@@ -92,7 +92,7 @@ export const HotelPopup:React.FC<{src:any}> =({src}) =>{
        
       </Button>
       </a>
-      <a href="meal" >
+      {/* <a href="meal" > */}
        <Button
         variant="contained"
        
@@ -109,11 +109,12 @@ export const HotelPopup:React.FC<{src:any}> =({src}) =>{
 
          
         }}
+         onClick={goMeal}
       >
         <Typography sx={{ fontSize: { xs: "0.6rem", sm: "0.7rem",  md: "13px" , textTransform:'capitalize' ,fontWeight:600,},}}>View Meal</Typography>
       
       </Button>
-      </a>
+      {/* </a> */}
       </Box>
       <Dialog
         onClose={handleClose}

@@ -1,19 +1,22 @@
 * {
   box-sizing: border-box;
+  
 }
 
 body {
-  margin: 0;
+  /* margin: 0; */
+  /* background-color: rgb(245 230 199 / 24%); */
 }
 
 .Home_body {
-  background-color: rgb(245, 230, 199);
+  /* background-color: rgb(245, 230, 199); */
   background-image: url("/public/Images/Home_Background.jpg");
   background-size: contain;
   /* background-size: cover; */
   max-width: 1200px;
   margin: 0px auto;
   background-repeat: no-repeat;
+  opacity:0.8 ;
 }
 
 .Title {
@@ -26,18 +29,23 @@ body {
 .Quote {
   text-align: center;
   font-family: "Dancing Script", cursive;
+  font-size: 25px;
+  text-align: center;
+  position: relative;
+  right: 50px;
+  
 }
 
 .Vehicle_select {
-  background-color: rgba(235, 153, 31, 0.678);
+  /* background-color: rgba(235, 153, 31, 0.678); */
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: large;
-  color: rgb(0, 0, 0);
+  /* color: rgb(0, 0, 0); */
   display: flex;
   text-align: center;
   justify-content: space-between;
   margin: 0 32%;
-  width:  35%;
+  /* width:  35%; */
   list-style: none;
   gap: 1rem;
   text-decoration: none;
@@ -49,7 +57,22 @@ body {
   border-radius: 10px 10px 10px 10px;
   border-top: none;
   border-bottom: none;
-  border-color: rgb(79, 76, 69);
+  /* border-color: rgb(79, 76, 69); */
+}
+
+
+.input_style-one, .input_style-two, .input_style-four,.input_style-three, .input_style-five  {
+  text-align: left !important;
+  border: 1;
+  font-size: 1rem;
+  border-width: 1.5px;
+  border-style: solid;
+  border-radius: 10px 10px 10px 10px;
+  border-color: rgb(122, 45, 45);
+  margin-left: 0px !important;
+  width: 90%;
+  color:#777;
+  margin-top: 10px;
 }
 
 .Logo {
@@ -130,14 +153,12 @@ body {
 }
 
 .print-button{
-  width: 100px;
+  width: fit-content;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: large;
   text-align: center;
   color: white;
   border: 1;
-  margin-left: 40%;
-  margin-top: 2px;
   border-width: 1.5px;
   border-style: solid;
   border-radius: 6px 6px 6px 6px;
@@ -153,8 +174,9 @@ body {
 }
 
 .blink_me {
-  color: rgb(31, 18, 134);
+  color: #21ae1d;
   animation: blinker 1s linear infinite;
+  font-size: 1.5rem;
 }
 @keyframes blinker {
   50% {
@@ -163,7 +185,7 @@ body {
 }
 
 .Trip_start {
-  background-color: rgba(228, 164, 25, 0.441);
+  /* background-color: rgba(228, 164, 25, 0.441); */
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: large;
   color: inherit;
@@ -178,7 +200,7 @@ body {
   border-width: 5px;
   border-style: solid;
   border-radius: 10px 10px 10px 10px;
-  border-color: rgb(79, 76, 69);
+  /* border-color: rgb(79, 76, 69); */
   border-bottom: none;
 }
 

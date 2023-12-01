@@ -1,7 +1,7 @@
 import React from "react";
 import "./Dashboard.css";
 
-function Navigation() {
+function Navigation({ from, to, depdates, arrdates, vehicle, arrtime }) {
   return (
     <nav className="Nav">
       <div className="container">
@@ -16,11 +16,44 @@ function Navigation() {
             />
           </a>
           <ul>
-            <li className="active">
-              <a href="/hotels">Hotels</a>
-            </li>
             <li>
-              <a href="/places">Places</a>
+              <a
+                href={`/places?from=${from ? from : ""}&to=${
+                  to ? to : ""
+                }&depdates=${depdates ? depdates : ""}&arrdates=${
+                  arrdates ? arrdates : ""
+                }&vehicle=${vehicle ? vehicle : ""}&deptime=${
+                  arrtime ? arrtime : ""
+                }`}
+              >
+                Places
+              </a>
+            </li>
+            <li className="active">
+              <a
+                href={`/hotels?from=${from ? from : ""}&to=${
+                  to ? to : ""
+                }&depdates=${depdates ? depdates : ""}&arrdates=${
+                  arrdates ? arrdates : ""
+                }&vehicle=${vehicle ? vehicle : ""}&deptime=${
+                  arrtime ? arrtime : ""
+                }`}
+              >
+                Hotels
+              </a>
+            </li>
+            <li className="active">
+              <a
+                href={`/meals?from=${from ? from : ""}&to=${
+                  to ? to : ""
+                }&depdates=${depdates ? depdates : ""}&arrdates=${
+                  arrdates ? arrdates : ""
+                }&vehicle=${vehicle ? vehicle : ""}&deptime=${
+                  arrtime ? arrtime : ""
+                }`}
+              >
+                Meals
+              </a>
             </li>
             <li>
               <a href="/about-us">About Us</a>
