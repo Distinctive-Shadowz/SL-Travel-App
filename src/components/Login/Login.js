@@ -9,8 +9,7 @@ function Login1() {
   
     const toggleForm = (formName) => {
       setCurrentForm(formName);
-    }
-  
+    } 
     return (
       <div className="Login">
         {
