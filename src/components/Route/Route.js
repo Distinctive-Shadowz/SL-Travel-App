@@ -61,6 +61,17 @@ const Route = () => {
     }
   }, []);
 
+  const goHotel = () => {
+    const params = new URLSearchParams();
+    params.set("from", from || fromvalue);
+    params.set("to", to || tovalue);
+    params.set("depdates", depdates);
+    params.set("arrdates", arrdates);
+    params.set("vehicle", vehicle);
+    params.set("deptime", deptime);
+
+    navigate(`/hotels?${params.toString()}`);
+  };
   const handleGetRoute = () => {
     const directionsService = new window.google.maps.DirectionsService();
 
@@ -350,12 +361,13 @@ const Route = () => {
                   Print
                 </Button>
                 {/* </Link> */}
-                <Link href="/hotels">
+                <Link>
                   {" "}
                   <Button
                     variant="contained"
                     color="success"
                     // onClick={handlePrintlink}
+                    onClick={goHotel}
                     sx={{ height: "3.2rem", width: "130px" }}
                   >
                     Go Hotel

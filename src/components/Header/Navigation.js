@@ -30,7 +30,30 @@ function Navigation({ from, to, depdates, arrdates, vehicle, arrtime }) {
               </a>
             </li>
             <li className="active">
-              <a href="/hotels">Hotels</a>
+              <a
+                href={`/hotels?from=${from ? from : ""}&to=${
+                  to ? to : ""
+                }&depdates=${depdates ? depdates : ""}&arrdates=${
+                  arrdates ? arrdates : ""
+                }&vehicle=${vehicle ? vehicle : ""}&deptime=${
+                  arrtime ? arrtime : ""
+                }`}
+              >
+                Hotels
+              </a>
+            </li>
+            <li className="active">
+              <a
+                href={`/meals?from=${from ? from : ""}&to=${
+                  to ? to : ""
+                }&depdates=${depdates ? depdates : ""}&arrdates=${
+                  arrdates ? arrdates : ""
+                }&vehicle=${vehicle ? vehicle : ""}&deptime=${
+                  arrtime ? arrtime : ""
+                }`}
+              >
+                Meals
+              </a>
             </li>
             <li>
               <a href="/about-us">About Us</a>

@@ -11,6 +11,7 @@ import Route from "./components/Route/Route";
 import "./App.css";
 
 import { useLocation } from "react-router-dom";
+import MainMeal from "./components/Meal/MainMeal";
 function App() {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
@@ -52,8 +53,8 @@ function App() {
     case "/login":
       component = <Login />;
       break;
-    case "/meal":
-      component = <Meal />;
+    case "/meals":
+      component = <MainMeal />;
       break;
     default:
       component = <Home />;

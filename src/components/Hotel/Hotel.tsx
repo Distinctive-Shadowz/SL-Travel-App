@@ -9,7 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 // import HotelPopup from "./HotelPopup.tsx";
-
+import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 // import CommonHero from "../Common/CommonHero.tsx";
 import hotel from "../Images/hotel1.jpg";
@@ -27,6 +27,7 @@ import Categories from "./Categories";
 import { HotelPopup } from "./HotelPopup";
 
 const Hotel = () => {
+  const navigate = useNavigate();
   const [data, setData] = useState(Categories);
   const filterResult = (catItem: any) => {
     const result = Categories.filter((curData) => {
@@ -35,7 +36,25 @@ const Hotel = () => {
     });
     setData(result);
   };
+const queryParams = new URLSearchParams(window.location.search);
+  const from = queryParams?.get("from");
+  const to= queryParams.get("to");
+  const depdates = queryParams.get("depdates");
+  const arrdates = queryParams.get("arrdates");
+  const vehicle = queryParams.get("vehicle");
+  const deptime = queryParams.get("deptime");
 
+    const goMeal = () => {
+    const params = new URLSearchParams();
+    params.set("from", from  ?from:"");
+    params.set("to", to ?to:"");
+    params.set("depdates", depdates?depdates:"");
+    params.set("arrdates", arrdates ?arrdates:"");
+    params.set("vehicle", vehicle ?vehicle:"");
+    params.set("deptime", deptime ?deptime:"");
+
+    navigate(`/meals?${params.toString()}`);
+  };
   return (
     <>
       <CommonHero src={"/Images/hotel1.jpg"} title={"Hotel"} />
@@ -207,6 +226,7 @@ const Hotel = () => {
                     src={item.src}
                     HotelName={item.title}
                     mapSrc={item.mapSrc}
+                    goMeal={goMeal}
                   />
                 );
               })}
@@ -235,7 +255,8 @@ export const HotelCom: React.FC<{
   HotelName: string;
   mapSrc: string | null;
   inplaces?:boolean;
-}> = ({ src, HotelName, mapSrc,inplaces }) => {
+  goMeal:any
+}> = ({ src, HotelName, mapSrc,inplaces ,goMeal}) => {
   return (
     <>
       <Box
@@ -276,7 +297,7 @@ export const HotelCom: React.FC<{
             {/* The Lucky Elepahant Hotel in Hikkaduwa */}
             {HotelName}
           </Typography>
-          <HotelPopup src={mapSrc} />
+          <HotelPopup src={mapSrc} goMeal={goMeal} />
         </CardContent>
       </Box>
     </>
