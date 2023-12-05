@@ -23,7 +23,7 @@ const Meal:React.FC<{onAdd:any; cartItems:any; onRemove:any}> = ({onAdd, cartIte
 
   return (
     <>
-      <CommonHero src={"/Images/salad.jpeg"} title={"Meals"} />
+      <CommonHero src={"/Images/salad.jpg"} title={"Meals"} />
       <Container sx={{ mt: "1rem", mb: "2rem" }}>
         <Typography
           sx={{
@@ -33,7 +33,7 @@ const Meal:React.FC<{onAdd:any; cartItems:any; onRemove:any}> = ({onAdd, cartIte
               sm: "1rem",
               md: "1.5rem",
             },
-            textAlign: "center",
+            textAlign: "left",
             fontWeight: 600,
             mb: "1rem",
           }}

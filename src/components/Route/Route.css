@@ -7,7 +7,7 @@
   flex: 1;
   padding: 20px;
   /* margin-bottom: 700px; */
-  background-color: rgb(245, 230, 199);
+  /* background-color: rgb(245, 230, 199); */
 }
 
 .get-button{
@@ -43,7 +43,7 @@
 .right-side {
   /* flex: 1; */
   padding: 20px;
-  background-color:rgb(245, 230, 199) ;
+  /* background-color:rgb(245, 230, 199) ; */
   width: 52%;
 
 }
@@ -57,7 +57,7 @@
     
 }
 .routeCon{
- background-color:rgb(245, 230, 199) ;
+ /* background-color:rgb(245, 230, 199) ; */
  display: flex;
  width: 100%;
  

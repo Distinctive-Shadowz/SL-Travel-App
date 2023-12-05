@@ -136,7 +136,7 @@ function FormSection() {
           component="form"
           sx={{
             transition: "all 0.5s",
-            bgcolor: "#fff",
+            bgcolor: "#ffffff15",
             minHeight: "5rem",
             width: "50%",
             left: "25%",
@@ -147,7 +147,7 @@ function FormSection() {
             borderRadius: "40px",
             position: "relative",
             backdropFilter: "blur(10px)",
-            border: "6px solid #000",
+            border: "6px solid #000000bd",
             Zindex: 2000,
             ".MuiOutlinedInput-notchedOutline": {
               border: "0px solid #fff",
@@ -195,6 +195,7 @@ function FormSection() {
                   height: "60px",
                   alignItems: "center",
                   bgcolor: "#C4D7B482",
+                  border: "1px solid rgb(28, 70, 13)",
                   borderRadius: "50%",
                   mr: "8px",
                   display: "grid",
@@ -247,6 +248,7 @@ function FormSection() {
                   alignItems: "center",
                   justifyContent: "center",
                   bgcolor: "#C4D7B482",
+                  border: "1px solid rgb(28, 70, 13)",
                   borderRadius: "50%",
                   mr: "8px",
                   display: "grid",
@@ -292,6 +294,7 @@ function FormSection() {
                   height: "60px",
                   alignItems: "center",
                   bgcolor: "#C4D7B482",
+                  border: "1px solid rgb(28, 70, 13)",
                   borderRadius: "50%",
                   mr: "8px",
                   display: "grid",
@@ -337,6 +340,7 @@ function FormSection() {
                   height: "60px",
                   alignItems: "center",
                   bgcolor: "#C4D7B482",
+                  border: "1px solid rgb(28, 70, 13)",
                   borderRadius: "50%",
                   mr: "8px",
                   display: "grid",
@@ -436,8 +440,10 @@ function FormSection() {
                           flexDirection: "row-reverse",
                           ".css-8kj30y-JoyRadio-icon": {
                             color: "rgb(85 131 47)"
-                          }
-                        }}
+                          },
+                          ".css-131p6is-JoyListItem-root": {
+                            borderColor: "#777"
+                        }}}
                         slotProps={{
                           action: ({ checked }) => ({
                             sx: (theme) => ({
@@ -472,6 +478,7 @@ function FormSection() {
                   height: "60px",
                   alignItems: "center",
                   bgcolor: "#C4D7B482",
+                  border: "1px solid rgb(28, 70, 13)",
                   borderRadius: "50%",
                   mr: "8px",
                   display: "grid",

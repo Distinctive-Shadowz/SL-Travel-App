@@ -177,6 +177,9 @@ body {
   color: #21ae1d;
   animation: blinker 1s linear infinite;
   font-size: 1.5rem;
+  text-align: center;
+  font-family:"Trebuchet MS", Verdana, sans-serif;
+  text-shadow: 1px 1px 1px rgb(0, 0, 0)
 }
 @keyframes blinker {
   50% {

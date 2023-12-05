@@ -28,7 +28,7 @@ const Hero:React.FC<{src:string; title:string}> = ({src, title}) => {
           
           // style={{ position: "absolute", top: 0, left: 0, objectFit:'fill'}}
         />
-        <Box sx={{position:'absolute', left:'50%', top:'50%', color:"#000",fontSize:{xs:'2rem', sm:'3.5rem',md:'4rem'}, fontWeight:800}} > {title}</Box>
+        <Box sx={{position:'absolute', left:'45%', top:'30%', color:"#fff",fontSize:{xs:'2rem', sm:'3.5rem',md:'5rem'}, fontWeight:400, fontFamily: 'Broadway Regular',  textShadow: '3px 2px 2px #000'}} > {title}</Box>
       </Box>
      
     </>
