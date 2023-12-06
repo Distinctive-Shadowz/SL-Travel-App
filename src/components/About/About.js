@@ -25,7 +25,28 @@ Our goal is to provide a comprehensive, user-friendly travel planning tool that 
 
 We hope you find SL Travel 2022 to be a valuable resource for your trip planning needs. If you have any questions or feedback, please don't hesitate to get in touch with us through the Contact Us page.
 
-Thank you for choosing SL Travel 2022 for your travel planning needs. We look forward to helping you create unforgettable memories in Sri Lanka!</p></div>
+Thank you for choosing SL Travel 2022 for your travel planning needs. We look forward to helping you create unforgettable memories in Sri Lanka!</p>
+
+<h2 className='sub-title'>Contact Us</h2><p> </p>
+		
+<div className='contact-info'>
+  <div className='section-content'>
+    <p>Email:</p>
+    <p>ribazur@gmail.com</p>
+    <p>cjsanjai@gmail.com</p>
+  </div>
+  <div className='section-content'>
+    <p>Phone:</p>
+    <p>076 6735354</p>
+    <p>072 8549067</p>
+  </div>
+  <div className='section-content'>
+    <p>Our team is dedicated to providing you with the best possible experience, and we look forward to assisting you.</p>
+    <p>Thank you for choosing SL TRAVEL 🥰</p>
+  </div>
+</div>
+
+</div>
 
       
       
